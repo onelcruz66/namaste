@@ -1,93 +1,7 @@
+{% extends "base.html" %} {% block title %} HOME {% endblock %}
 {% load widget_tweaks %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Namaste</title>
-	<link rel="shortcut icon" href="/static/img/namaste/favicon-32x32.png" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="/static/img/namaste/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/static/img/namaste/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/namaste/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/static/img/namaste/favicon-16x16.png">
-    <link rel="manifest" href="/static/img/namaste/site.webmanifest">
-    <!-- Bootstrap Core CSS -->
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Animate CSS -->
-	<link href="/static/css/animate.css" rel="stylesheet">
-    <!-- Venobox CSS -->
-	<link href="/static/css/venobox.css" rel="stylesheet">
-	<!-- Owl Carousel CSS -->
-	<link href="/static/css/owl.carousel.min.css" rel="stylesheet">
-	<!--Chosen-->
-	<link href="/static/css/chosen.css" rel="stylesheet">
-	<!--Time picker-->
-	<link href="/static/css/bootstrap-timepicker.min.css" rel="stylesheet">
-	<!--Date picker-->
-	<link href="/static/css/datepicker.css" rel="stylesheet">
-	<!-- Font-awesome -->
-	<link rel="stylesheet" href="/static/fonts/font-awesome/css/font-awesome.min.css">
-	<!-- Google font-->
-	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,400i,500,600,700,800,900" rel="stylesheet">
-	<!-- Main CSS -->
-	<link href="/static/style.css" rel="stylesheet">
-	
-</head>
+{% block content %}
 
-<body>
-	<!--Preload-->
-	<div class="preloader">
-		<div class="preloader_image">
-			<div class="sk-double-bounce">
-				<div class="sk-child sk-double-bounce1"></div>
-				<div class="sk-child sk-double-bounce2"></div>
-			</div>
-		</div>
-	</div>
-	
-	<nav class="navbar navbar-expand-lg bg-white">
-		<div class="container">
-			<a class="navbar-brand" href="{% url 'home' %}">
-                <img src="/static/img/namaste/colored_buddha_logo.jpg" alt="Logo">
-            </a>
-			<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="main-nav">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item">
-						<a class="nav-link" href="{% url 'home' %}">HOME</a>					
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{% url 'about' %}">SOBRE NOSOTROS</a>					
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{% url 'services' %}">SERVICIOS</a>					
-					</li>
-					<!-- <li class="nav-item">
-						<a class="nav-link" href="pricing.html">Pricing</a>					
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="gallery.html">Gallery</a>					
-					</li>					
-					<li class="nav-item">
-						<a class="nav-link" href="blog.html">Blog</a>					
-					</li> -->
-					<li class="nav-item">
-						<a class="nav-link" href="{% url 'contact' %}">CONTACTO</a>					
-					</li>
-					<li class="nav-item btn-appointment">
-						<a class="nav-link" href="#" data-toggle="modal" data-target="#appointment">RESERVA TU CITA</a>					
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	<!-- end nav -->
-	
 	<section class="carousel slide" id="banner" data-ride="carousel" data-pause="false">
 		<div class="carousel-inner">
 			<div class="carousel-item active" style="background-image:url(/static/img/namaste/buddha_hero_banner.jpg)">
@@ -95,9 +9,14 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-md-7">
-								<div class="hero-text">
+                                <style>
+                                    .margin-adjust {
+                                        margin-left: 650px; /* Adjusts left margin to push content to the right */
+                                    }
+                                </style>
+								<div class="hero-text margin-adjust">
 									<h6 class="animated fadeInDown">Consetetur Adipiscing</h6>
-									<h1 class="animated fadeInUp">Soft & Pure Spa Salon</h1>
+									<h1 class="animated fadeInUp">NAMASTE</h1>
 									<p class="animated fadeInUp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt ullamcorper magna, in tincidunt ex auctor et.</p>
 									<a href="{% url 'contact' %}" class="btn btn-primary animated fadeInUp">Contact Us</a>
 								</div>
@@ -106,46 +25,6 @@
 					</div>
 				</div>
 			</div>
-			
-			<!-- <div class="carousel-item" style="background-image:url(/static/img/banner/slide-2.jpg)">
-				<div class="banner-caption">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-7">
-								<div class="hero-text">
-									<h6 class="animated fadeInLeft">Consetetur Adipiscing</h6>
-									<h1 class="animated fadeInLeft">Soft & Pure Spa Salon</h1>
-									<p class="animated fadeInLeft">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt ullamcorper magna, in tincidunt ex auctor et.</p>
-									<a href="{% url 'contact' %}" class="btn btn-primary animated fadeInLeft">Contact Us</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			<div class="carousel-item" style="background-image:url(/static/img/banner/slide-3.jpg)">
-				<div class="banner-caption">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-7">
-								<div class="hero-text">
-									<h6 class="animated fadeInRight">Consetetur Adipiscing</h6>
-									<h1 class="animated fadeInRight">Soft & Pure Spa Salon</h1>
-									<p class="animated fadeInRight">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt ullamcorper magna, in tincidunt ex auctor et.</p>
-									<a href="{% url 'contact' %}" class="btn btn-primary animated fadeInRight">Contact Us</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div> -->
-			
-			<!-- <ol class="carousel-indicators">
-				<li data-target="#banner" data-slide-to="0" class="active"></li>
-				<li data-target="#banner" data-slide-to="1"></li>
-				<li data-target="#banner" data-slide-to="2"></li>
-			</ol> -->
 		</div>
 	</section>
 	<!-- end banner -->
@@ -177,6 +56,19 @@
 				<div class="col-md-4">
 					<div class="service-item wow fadeIn">
 						<div class="thumb">
+							<a href="{% url 'service' %}"><img src="/static/img/namaste/post_surgical.jpg" alt=""></a>
+						</div>
+						<div class="service-info text-center">
+							<h3><a href="{% url 'service' %}">Stone Message</a></h3>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
+							<a href="{% url 'service' %}" class="btn btn-default">Read More</a>
+						</div>
+					</div>
+				</div>
+
+                <div class="col-md-4">
+					<div class="service-item wow fadeIn">
+						<div class="thumb">
 							<a href="{% url 'service' %}"><img src="/static/img/namaste/prenatal_massage.jpg" alt=""></a>
 						</div>
 						<div class="service-info text-center">
@@ -186,20 +78,6 @@
 						</div>
 					</div>
 				</div>
-				
-				<div class="col-md-4">
-					<div class="service-item wow fadeIn">
-						<div class="thumb">
-							<a href="{% url 'service' %}"><img src="/static/img/services/3.jpg" alt=""></a>
-						</div>
-						<div class="service-info text-center">
-							<h3><a href="{% url 'service' %}">Body Message</a></h3>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
-							<a href="{% url 'service' %}" class="btn btn-default">Read More</a>
-						</div>
-					</div>
-				</div>
-			</div>
 			
 			<div class="row">
 				<div class="col-md-12 text-center">
@@ -215,7 +93,7 @@
 			<div class="row">
 				<div class="col-sm-12 col-md-6">
 					<div class="img-block wow fadeIn">
-						<img src="/static/img/why-choose/1.jpg" alt="">
+						<img src="/static/img/namaste/video_screenshot.jpg" alt="">
 						<div class="play-button">
 							<a href="#" data-toggle="modal" data-target="#video-modal"><i class="fa fa-play"></i></a>
 						</div>
@@ -663,79 +541,6 @@
 	</section>
 	<!-- end team testimonials -->
 	
-	<footer id="footer">
-		<div class="footer-top">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-3">
-						<div class="footer-widget">
-							<h3>About Us</h3>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-							
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="footer-widget">
-							<h3>Quick Links</h3>
-							<ul>
-								<li><a href="{% url 'about' %}">About Us</a></li>
-								<li><a href="{% url 'services' %}">Procedures</a></li>
-								<!-- <li><a href="gallery.html">Gallery</a></li> -->
-								<li><a href="{% url 'contact' %}">Contact Us</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="footer-widget">
-							<h3>Contact Info</h3>
-							<ul>
-								<li><i class="fa fa-send" aria-hidden="true"></i> 3481 Rabana Place, 2090</li>
-								<li><i class="fa fa-phone" aria-hidden="true"></i> +880 17980XXXXX</li>
-								<li><i class="fa fa-envelope-o" aria-hidden="true"></i> info@example.com</li>
-								<li><i class="fa fa-fax" aria-hidden="true"></i> Fax : 02 9635 0247</li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="footer-widget">
-							<h3>Business hour</h3>
-							<ul class="bussiness-hour">
-								<li>Monday-Friday: <span class="pull-right">9am - 5pm.</span></li>
-								<li>Saturday: <span class="pull-right">10am - 2pm.</span></li>
-								<li>Sunday: <span class="pull-right">Closed.</span></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="footer-bottom">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-12 col-md-6">
-						<div class="copyright">
-							<p>Copyright &copy; 2018. All rights reserved.</p>
-						</div>
-					</div>
-					<div class="col-sm-12 col-md-6">
-						<ul class="social-icons pull-right">
-							<li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!-- end footer -->
-	
-	<!-- Bact to top -->
-	<div class="back-top">
-		<a href="#"><i class="fa fa-angle-up"></i></a>
-	</div>
-	
 	<!-- Start Video Modal -->
 	<div class="modal fade modal-vcenter" id="video-modal" role="dialog">
         <div class="modal-dialog modal-lg" role="document">
@@ -744,8 +549,14 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times-circle-o"></i></button>
                 </div>
                 <div class="modal-body">
+                    <video width="760" height="500" controls>
+                        <source src="/static/img/namaste/namaste_massage_video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>                
+                <!-- <div class="modal-body">
 					<iframe width="760" height="500" src="https://www.youtube.com/embed/EEnkifmw25U?rel=0&amp;showinfo=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div>
+                </div> -->
             </div>
         </div>
     </div> 
@@ -873,24 +684,4 @@
         </div>
     </div>
 	
-    <!-- jQuery -->
-    <script src="/static/js/jquery-3.3.1.min.js"></script>
-	<script src="/static/js/popper.min.js"></script>
-    <script src="/static/js/bootstrap.min.js"></script>
-    <script src="/static/js/jquery.counterup.min.js"></script>
-    <script src="/static/js/waypoints.min.js"></script>
-    <script src="/static/js/jquery.easing.min.js"></script>
-	<script src="/static/js/wow.js"></script>
-	<script src="/static/js/owl.carousel.min.js"></script>
-	<script src="/static/js/venobox.min.js"></script>
-	<script src="/static/js/SmoothScroll.js"></script>
-	<script src="/static/js/tilt.jquery.js"></script>
-	<script src="/static/js/bootstrap-timepicker.min.js"></script>
-	<script src="/static/js/bootstrap-datepicker.js"></script>
-	<script src="/static/js/chosen.jquery.js"></script>
-	<script src="/static/mail/js/form-validator.min.js"></script>
-	<script src="/static/mail/js/contact-form-script.js"></script>
-    <script src="/static/js/script.js"></script>
-	
-</body>
-</html>
+    {% endblock %}
