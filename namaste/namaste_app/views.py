@@ -16,3 +16,6 @@ def services(request):
 
 def service(request):
     return render(request, 'service-single.html')
+
+def swedish_massage(request):
+    return render(request, 'swedish_massage.html')
