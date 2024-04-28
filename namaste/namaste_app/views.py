@@ -5,17 +5,62 @@ from django.http import HttpResponse
 def home(request):
     return render(request, 'index.html')
 
-def about(request):
+def sobre_nosotros(request):
     return render(request, 'about-us.html')
 
-def contact(request):
+def contacto(request):
     return render(request, 'contact-us.html')
 
-def services(request):
+def servicios(request):
     return render(request, 'services.html')
 
-def service(request):
+def servicio(request):
     return render(request, 'service-single.html')
 
-def swedish_massage(request):
+def masaje_sueco(request):
     return render(request, 'swedish_massage.html')
+
+def post_operatorio(request):
+    return render(request, 'post_op.html')
+
+def masaje_prenatal(request):
+    return render(request, 'prenatal.html')
+
+def masaje_profundo(request):
+    return render(request, 'deep_massage.html')
+
+def detox_oro(request):
+    return render(request, 'gold_detox.html')
+
+def vacuslim(request):
+    return render(request, 'vacuslim.html')
+
+def waxing(request):
+    return render(request, 'waxing.html')
+
+def terapia_madera(request):
+    return render(request, 'wood_therapy.html')
+
+def terapia_metal(request):
+    return render(request, 'metal_therapy.html')
+
+def drenaje(request):
+    return render(request, 'drainage.html')
+
+def quiromasaje(request):
+    return render(request, 'massage_therapy.html')
+
+def terapia_bamboo(request):
+    return render(request, 'bamboo_therapy.html')
+
+def piedras_calientes(request):
+    return render(request, 'hot_rocks.html')
+
+def copas_chinas(request):
+    return render(request, 'chinese_cups.html')
+
+def pistola_masaje(request):
+    return render(request, 'massage_pistol.html')
+
+def mesoterapia(request):
+    return render(request, 'mesotherapy.html')

@@ -1,16 +1,16 @@
-{% extends "base.html" %} {% block title %} - Masaje Sueco {% endblock %}
+{% extends "base.html" %} {% block title %} - Servicio {% endblock %}
 {% load widget_tweaks %}
 {% block content %}
 
-	<section class="inner-page-banner" style="background-image:url(/static/img/namaste/swedish_massage_banner.jpg)">
+	<section class="inner-page-banner" style="background-image:url(/static/img/banner/services-banner.jpg)">
 		<div class="page-banner-caption">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<h1>Masaje Sueco</h1>
+						<h1>Service Details</h1>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-							<li class="breadcrumb-item active">Masaje Sueco</li>
+							<li class="breadcrumb-item active">Service Details</li>
 						</ol>
 					</div>
 				</div>
@@ -25,26 +25,26 @@
 				<div class="col-md-4">
 					<div class="service-item wow fadeIn">
 						<div class="thumb">
-							<a href="{% url 'masaje-sueco' %}"><img src="/static/img/namaste/swiss_massage.jpg" alt=""></a>
+							<a href="service-single.html"><img src="/static/img/services/1.jpg" alt=""></a>
 						</div>
 						<div class="service-info text-center">
-							<h3><a href="{% url 'masaje-sueco' %}">Masaje Sueco</a></h3>
-							<p>Este masaje, inspirado en las prácticas suizas de bienestar, utiliza movimientos precisos y presión controlada para liberar la tensión muscular y mejorar la circulación.</p>
+							<h3><a href="service-single.html">Mesoterapia</a></h3>
+							<p>Con sesiones rápidas y sin dolor, nuestra mesoterapia no invasiva es perfecta para combatir la celulitis, mejorar la firmeza de la piel y rejuvenecer tu apariencia sin tiempo de inactividad.</p>
 							<a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reserva Ahora</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-8">
 					<div class="service-details">
-						<h3>Duración: 1 hora<br>$65</h3>
-						<p>Nuestro servicio de masaje sueco está diseñado para aliviar el estrés, promover la relajación y mejorar la circulación. Experimenta la tranquilidad y el rejuvenecimiento con cada sesión, personalizada para atender tus necesidades específicas.</p>
-						<h3>Beneficios</h3>
+						<h3>Duration: 1-2hr<br>$180</h3>
+						<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+						<p> Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic  typesetting.</p>
+						<h3>Effects</h3>
 						<ul>
-							<li><b>Relajación Profunda:</b> Libérate del estrés del día a día y sumérgete en una paz total.</li>
-							<br><br>
-							<li><b>Mejora la Circulación:</b> Estimula el flujo sanguíneo y promueve la salud cardiovascular.</li>
-							<br><br>
-							<li><b>Alivia Dolores Musculares:</b> Ideal para suavizar tensiones y dolores, mejorando tu flexibilidad y movilidad.</li>
+							<li>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the.</li>
+							<li>Scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic  typesetting, remaining essentially unchanged.</li>
+							<li>Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley.</li>
+							<li>It has survived not only five centuries, but also the leap into electronic typesetting.</li>
 						</ul>
 					</div>
 				</div>
@@ -58,7 +58,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="section-title text-center">
-						<h2><span>Te podria gustar</span></h2>
+						<h2><span>You may also like</span></h2>
 					</div>
 				</div>
 			</div>
@@ -66,12 +66,12 @@
 				<div class="col-md-4">
 					<div class="service-item wow fadeIn">
 						<div class="thumb">
-							<a href="{% url 'mesoterapia' %}"><img src="/static/img/namaste/mesotherapy (1).jpg" alt=""></a>
+							<a href="service-single.html"><img src="/static/img/services/2.jpg" alt=""></a>
 						</div>
 						<div class="service-info text-center">
-							<h3><a href="{% url 'mesoterapia' %}">Mesoterapia</a></h3>
-							<p>Con sesiones rápidas y sin dolor, nuestra mesoterapia no invasiva es perfecta para combatir la celulitis, mejorar la firmeza de la piel y rejuvenecer tu apariencia sin tiempo de inactividad.</p>
-							<a href="{% url 'mesoterapia' %}" class="btn btn-default">Leer Mas</a>
+							<h3><a href="service-single.html">Stone Message</a></h3>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
+							<a href="service-single.html" class="btn btn-default">Read More</a>
 						</div>
 					</div>
 				</div>
@@ -79,12 +79,12 @@
 				<div class="col-md-4">
 					<div class="service-item wow fadeIn">
 						<div class="thumb">
-							<a href="{% url 'piedras-calientes' %}"><img src="/static/img/namaste/hot_rocks (1).jpg" alt=""></a>
+							<a href="service-single.html"><img src="/static/img/services/3.jpg" alt=""></a>
 						</div>
 						<div class="service-info text-center">
-							<h3><a href="{% url 'piedras-calientes' %}">Piedras Calientes</a></h3>
-							<p>Esta técnica ancestral combina el poder curativo del calor con los beneficios terapéuticos del masaje, ayudándote a liberar la tensión muscular y promover una sensación de bienestar completa.</p>
-							<a href="{% url 'piedras-calientes' %}" class="btn btn-default">Leer Mas</a>
+							<h3><a href="service-single.html">Body Message</a></h3>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
+							<a href="service-single.html" class="btn btn-default">Read More</a>
 						</div>
 					</div>
 				</div>
@@ -92,12 +92,12 @@
 				<div class="col-md-4">
 					<div class="service-item wow fadeIn">
 						<div class="thumb">
-							<a href="{% url 'terapia-bamboo' %}"><img src="/static/img/namaste/bamboo_therapy (1).jpg" alt=""></a>
+							<a href="service-single.html"><img src="/static/img/services/5.jpg" alt=""></a>
 						</div>
 						<div class="service-info text-center">
-							<h3><a href="{% url 'terapia-bamboo' %}">Terapia de Bamboo</a></h3>
-							<p>Sumérgete en una experiencia revitalizante con nuestro masaje de tejido profundo, diseñado para liberar la tensión muscular y aliviar los nudos de estrés acumulados.</p>
-							<a href="{% url 'terapia-bamboo' %}" class="btn btn-default">Leer Mas</a>
+							<h3><a href="service-single.html">Aromatherapy</a></h3>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
+							<a href="service-single.html" class="btn btn-default">Read More</a>
 						</div>
 					</div>
 				</div>
