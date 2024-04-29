@@ -1,16 +1,16 @@
-{% extends "base.html" %} {% block title %} - Servicio {% endblock %}
+{% extends "base.html" %} {% block title %} - Masaje Prenatal {% endblock %}
 {% load widget_tweaks %}
 {% block content %}
 
-	<section class="inner-page-banner" style="background-image:url(/static/img/banner/services-banner.jpg)">
+	<section class="inner-page-banner" style="background-image:url(/static/img/namaste/prenatal_banner.jpg)">
 		<div class="page-banner-caption">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<h1>Service Details</h1>
+						<h1>Masaje Prenatal</h1>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-							<li class="breadcrumb-item active">Service Details</li>
+							<li class="breadcrumb-item active">Masaje Prenatal</li>
 						</ol>
 					</div>
 				</div>
@@ -25,10 +25,10 @@
 				<div class="col-md-4">
 					<div class="service-item wow fadeIn">
 						<div class="thumb">
-							<a href="service-single.html"><img src="/static/img/services/1.jpg" alt=""></a>
+							<a href="{% url 'masaje-prenatal' %}"><img src="/static/img/namaste/prenatal_massage.jpg" alt=""></a>
 						</div>
 						<div class="service-info text-center">
-							<h3><a href="service-single.html">Masaje Prenatal</a></h3>
+							<h3><a href="{% url 'masaje-prenatal' %}">Masaje Prenatal</a></h3>
 							<p>Disfruta de un masaje prenatal diseñado específicamente para mujeres embarazadas, que ofrece alivio y relajación durante esta etapa especial de la vida.</p>
 							<a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reserva Ahora</a>
 						</div>
@@ -36,15 +36,15 @@
 				</div>
 				<div class="col-md-8">
 					<div class="service-details">
-						<h3>Duration: 1-2hr<br>$180</h3>
-						<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-						<p> Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic  typesetting.</p>
-						<h3>Effects</h3>
+						<h3>Duración: 1 Hora<br>$65</h3>
+						<p>En Namaste, sabemos que el embarazo es una etapa única y especial. Ofrecemos masajes prenatales diseñados específicamente para futuras mamás, proporcionando alivio y relajación en un ambiente seguro y confortable.</p>
+						<h3>Beneficios</h3>
 						<ul>
-							<li>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the.</li>
-							<li>Scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic  typesetting, remaining essentially unchanged.</li>
-							<li>Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley.</li>
-							<li>It has survived not only five centuries, but also the leap into electronic typesetting.</li>
+							<li><b>Alivio del Dolor de Espalda y Caderas:</b> Nuestros masajes ayudan a reducir las molestias comunes en estas áreas debido a los cambios posturales durante el embarazo.</li>
+							<br><br>
+							<li><b>Reducción del Estrés y la Ansiedad:</b> Un momento de calma para ti y tu bebé, mejorando tu estado de ánimo y bienestar general.</li>
+							<br><br>
+							<li><b>Mejora de la Circulación:</b> Favorece el retorno venoso, importante para evitar la hinchazón de piernas y pies.</li>
 						</ul>
 					</div>
 				</div>
@@ -58,7 +58,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="section-title text-center">
-						<h2><span>You may also like</span></h2>
+						<h2><span>Te podria gustar</span></h2>
 					</div>
 				</div>
 			</div>
@@ -66,12 +66,12 @@
 				<div class="col-md-4">
 					<div class="service-item wow fadeIn">
 						<div class="thumb">
-							<a href="service-single.html"><img src="/static/img/services/2.jpg" alt=""></a>
+							<a href="{% url 'drenaje' %}"><img src="/static/img/namaste/drainage (1).jpg" alt=""></a>
 						</div>
 						<div class="service-info text-center">
-							<h3><a href="service-single.html">Stone Message</a></h3>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
-							<a href="service-single.html" class="btn btn-default">Read More</a>
+							<h3><a href="{% url 'drenaje' %}">Drenaje</a></h3>
+							<p>Nuestro masaje de drenaje linfático, una técnica suave y terapéutica diseñada para estimular el sistema linfático y promover la eliminación de toxinas del cuerpo.</p>
+							<a href="{% url 'drenaje' %}" class="btn btn-default">Leer Mas</a>
 						</div>
 					</div>
 				</div>
@@ -79,12 +79,12 @@
 				<div class="col-md-4">
 					<div class="service-item wow fadeIn">
 						<div class="thumb">
-							<a href="service-single.html"><img src="/static/img/services/3.jpg" alt=""></a>
+							<a href="{% url 'terapia-madera' %}"><img src="/static/img/namaste/wood_therapy.jpg" alt=""></a>
 						</div>
 						<div class="service-info text-center">
-							<h3><a href="service-single.html">Body Message</a></h3>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
-							<a href="service-single.html" class="btn btn-default">Read More</a>
+							<h3><a href="{% url 'terapia-madera' %}">Terapia De Madera</a></h3>
+							<p>Nuestra terapia de madera, una técnica ancestral que utiliza instrumentos de madera natural para estimular la circulación, reducir la celulitis y tonificar la piel.</p>
+							<a href="{% url 'terapia-madera' %}" class="btn btn-default">Leer Mas</a>
 						</div>
 					</div>
 				</div>
@@ -92,12 +92,12 @@
 				<div class="col-md-4">
 					<div class="service-item wow fadeIn">
 						<div class="thumb">
-							<a href="service-single.html"><img src="/static/img/services/5.jpg" alt=""></a>
+							<a href="{% url 'terapia-metal' %}"><img src="/static/img/namaste/metal_therapy.jpg" alt=""></a>
 						</div>
 						<div class="service-info text-center">
-							<h3><a href="service-single.html">Aromatherapy</a></h3>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
-							<a href="service-single.html" class="btn btn-default">Read More</a>
+							<h3><a href="{% url 'terapia-metal' %}">Terapia De Metal</a></h3>
+							<p>El metal se desliza suavemente sobre la piel, liberando la tensión muscular, mejorando la circulación y promoviendo una sensación de bienestar profundo.</p>
+							<a href="{% url 'terapia-metal' %}" class="btn btn-default">Leer Mas</a>
 						</div>
 					</div>
 				</div>
@@ -106,7 +106,7 @@
 			
 			<div class="row">
 				<div class="col-md-12 text-center">
-					<a href="{% url 'contacto' %}" class="btn btn-primary">Contact us</a>
+					<a href="{% url 'contacto' %}" class="btn btn-primary">Contactanos</a>
 				</div>
 			</div>
 		</div>
