@@ -50,12 +50,6 @@ def drenaje(request):
 def quiromasaje(request):
     return render(request, 'massage_therapy.html')
 
-def terapia_bamboo(request):
-    return render(request, 'bamboo_therapy.html')
-
-def piedras_calientes(request):
-    return render(request, 'hot_rocks.html')
-
 def copas_chinas(request):
     return render(request, 'chinese_cups.html')
 
