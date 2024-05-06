@@ -1,16 +1,16 @@
-{% extends "base.html" %} {% block title %} - Servicio {% endblock %}
+{% extends "base.html" %} {% block title %} - Copas Chinas {% endblock %}
 {% load widget_tweaks %}
 {% block content %}
 
-	<section class="inner-page-banner" style="background-image:url(/static/img/banner/services-banner.jpg)">
+	<section class="inner-page-banner" style="background-image:url(/static/img/namaste/chinese_cups_banner.jpg)">
 		<div class="page-banner-caption">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<h1>Service Details</h1>
+						<h1>Copas Chinas</h1>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-							<li class="breadcrumb-item active">Service Details</li>
+							<li class="breadcrumb-item active">Copas Chinas</li>
 						</ol>
 					</div>
 				</div>
@@ -25,10 +25,13 @@
 				<div class="col-md-4">
 					<div class="service-item wow fadeIn">
 						<div class="thumb">
-							<a href="service-single.html"><img src="/static/img/services/1.jpg" alt=""></a>
+							<a href="{% url 'copas-chinas' %}"><img src="/static/img/namaste/copas_chinas.jpg" alt=""></a>
+							<div class="play-button">
+								<a href="#" data-toggle="modal" data-target="#video-modal"><i class="fa fa-play"></i></a>
+							</div>
 						</div>
 						<div class="service-info text-center">
-							<h3><a href="service-single.html">Copas Chinas</a></h3>
+							<h3><a href="{% url 'copas-chinas' %}">Copas Chinas</a></h3>
 							<p>Esta técnica milenaria, utilizada en la medicina tradicional china, ofrece una manera efectiva de aliviar la tensión muscular y mejorar la circulación.</p>
 							<a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reserva Ahora</a>
 						</div>
@@ -36,15 +39,14 @@
 				</div>
 				<div class="col-md-8">
 					<div class="service-details">
-						<h3>Duration: 1-2hr<br>$180</h3>
-						<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-						<p> Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic  typesetting.</p>
-						<h3>Effects</h3>
+						<h3>Por Tratamiento<br>$15</h3>
+						<p>Descubre cómo esta práctica tradicional puede ayudarte a recuperar el equilibrio y la vitalidad.</p>
+						<h3>Beneficios</h3>
 						<ul>
-							<li>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the.</li>
-							<li>Scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic  typesetting, remaining essentially unchanged.</li>
-							<li>Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley.</li>
-							<li>It has survived not only five centuries, but also the leap into electronic typesetting.</li>
+							<li><b>Alivio del Dolor Muscular:</b> Ideal para tratar dolores crónicos y agudos en áreas como la espalda, cuello y hombros.</li>
+							<li><b>Mejora de la Circulación Sanguínea:</b> Las ventosas estimulan la circulación, lo que ayuda a oxigenar los tejidos y eliminar toxinas.</li>
+							<li><b>Relajación Profunda:</b> Reduce significativamente el estrés y la ansiedad, promoviendo un estado de bienestar general.</li>
+							<li><b>Apoyo al Sistema Inmunológico:</b> Fortalece las defensas naturales del cuerpo, mejorando la salud general.</li>
 						</ul>
 					</div>
 				</div>
@@ -58,7 +60,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="section-title text-center">
-						<h2><span>You may also like</span></h2>
+						<h2><span>Te Podria Gustar</span></h2>
 					</div>
 				</div>
 			</div>
@@ -66,12 +68,12 @@
 				<div class="col-md-4">
 					<div class="service-item wow fadeIn">
 						<div class="thumb">
-							<a href="service-single.html"><img src="/static/img/services/2.jpg" alt=""></a>
+							<a href="{% url 'drenaje' %}"><img src="/static/img/namaste/drenaje.jpg" alt=""></a>
 						</div>
 						<div class="service-info text-center">
-							<h3><a href="service-single.html">Stone Message</a></h3>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
-							<a href="service-single.html" class="btn btn-default">Read More</a>
+							<h3><a href="{% url 'drenaje' %}">Drenaje Linfático</a></h3>
+							<p>Nuestro masaje de drenaje linfático, una técnica suave y terapéutica diseñada para estimular el sistema linfático y promover la eliminación de toxinas del cuerpo.</p>
+							<a href="{% url 'drenaje' %}" class="btn btn-default">Leer Mas</a>
 						</div>
 					</div>
 				</div>
@@ -79,12 +81,12 @@
 				<div class="col-md-4">
 					<div class="service-item wow fadeIn">
 						<div class="thumb">
-							<a href="service-single.html"><img src="/static/img/services/3.jpg" alt=""></a>
+							<a href="{% url 'vacuslim' %}"><img src="/static/img/namaste/vacuslim.jpg" alt=""></a>
 						</div>
 						<div class="service-info text-center">
-							<h3><a href="service-single.html">Body Message</a></h3>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
-							<a href="service-single.html" class="btn btn-default">Read More</a>
+							<h3><a href="{% url 'vacuslim' %}">Vacuslim-48</a></h3>
+							<p>Nuestro tratamiento de Vacuslim combina la succión controlada con masajes terapéuticos para estimular la circulación, reducir la celulitis y mejorar la firmeza de la piel.</p>
+							<a href="{% url 'vacuslim' %}" class="btn btn-default">Leer Mas</a>
 						</div>
 					</div>
 				</div>
@@ -92,12 +94,12 @@
 				<div class="col-md-4">
 					<div class="service-item wow fadeIn">
 						<div class="thumb">
-							<a href="service-single.html"><img src="/static/img/services/5.jpg" alt=""></a>
+							<a href="{% url 'waxing' %}"><img src="/static/img/namaste/waxing.jpg" alt=""></a>
 						</div>
 						<div class="service-info text-center">
-							<h3><a href="service-single.html">Aromatherapy</a></h3>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
-							<a href="service-single.html" class="btn btn-default">Read More</a>
+							<h3><a href="{% url 'waxing' %}">Depilación</a></h3>
+							<p>Disfruta de una piel suave y sin vello con nuestros servicios profesionales de depilación con cera.</p>
+							<a href="{% url 'waxing' %}" class="btn btn-default">Leer Mas</a>
 						</div>
 					</div>
 				</div>
@@ -106,12 +108,33 @@
 			
 			<div class="row">
 				<div class="col-md-12 text-center">
-					<a href="{% url 'contacto' %}" class="btn btn-primary">Contact us</a>
+					<a href="{% url 'contacto' %}" class="btn btn-primary">Contactanos</a>
 				</div>
 			</div>
 		</div>
 	</section>
 	<!-- end services -->
+
+	<!-- Start Video Modal -->
+	<div class="modal fade modal-vcenter" id="video-modal" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times-circle-o"></i></button>
+                </div>
+                <div class="modal-body">
+                    <video width="760" height="500" controls>
+                        <source src="/static/img/namaste/copas_chinas.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>                
+                <!-- <div class="modal-body">
+					<iframe width="760" height="500" src="https://www.youtube.com/embed/EEnkifmw25U?rel=0&amp;showinfo=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div> -->
+            </div>
+        </div>
+    </div> 
+	<!-- End Video Modal --> 
 	
 	<!-- Appointment Modal -->
     <div class="modal fade modal-vcenter" id="appointment" role="dialog">

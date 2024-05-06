@@ -1,16 +1,16 @@
-{% extends "base.html" %} {% block title %} - Servicio {% endblock %}
+{% extends "base.html" %} {% block title %} - Pistola De Masaje {% endblock %}
 {% load widget_tweaks %}
 {% block content %}
 
-	<section class="inner-page-banner" style="background-image:url(/static/img/banner/services-banner.jpg)">
+	<section class="inner-page-banner" style="background-image:url(/static/img/namaste/massage_pistol_banner.jpg)">
 		<div class="page-banner-caption">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<h1>Service Details</h1>
+						<h1>Pistola De Masaje</h1>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-							<li class="breadcrumb-item active">Service Details</li>
+							<li class="breadcrumb-item active">Pistola De Masaje</li>
 						</ol>
 					</div>
 				</div>
@@ -25,10 +25,10 @@
 				<div class="col-md-4">
 					<div class="service-item wow fadeIn">
 						<div class="thumb">
-							<a href="service-single.html"><img src="/static/img/services/1.jpg" alt=""></a>
+							<a href="{% url 'pistola-masaje' %}"><img src="/static/img/namaste/massage_gun (1).jpg" alt=""></a>
 						</div>
 						<div class="service-info text-center">
-							<h3><a href="service-single.html">Pistola De Masaje</a></h3>
+							<h3><a href="{% url 'pistola-masaje' %}">Pistola De Masaje</a></h3>
 							<p>Esta herramienta de vanguardia utiliza percusiones rápidas y profundas para estimular los músculos, aliviar la tensión y mejorar la circulación sanguínea.</p>
 							<a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reserva Ahora</a>
 						</div>
@@ -36,15 +36,14 @@
 				</div>
 				<div class="col-md-8">
 					<div class="service-details">
-						<h3>Duration: 1-2hr<br>$180</h3>
-						<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-						<p> Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic  typesetting.</p>
-						<h3>Effects</h3>
+						<h3>Por área:<br>$5</h3>
+						<p>Esta herramienta innovadora está diseñada para proporcionar alivio rápido y efectivo de la tensión muscular, mejorar la circulación y acelerar el proceso de recuperación. Ideal para deportistas y personas con estilos de vida activos o que sufren de dolores crónicos</p>
+						<h3>Beneficios</h3>
 						<ul>
-							<li>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the.</li>
-							<li>Scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic  typesetting, remaining essentially unchanged.</li>
-							<li>Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley.</li>
-							<li>It has survived not only five centuries, but also the leap into electronic typesetting.</li>
+							<li><b>Recuperación Muscular Acelerada:</b> Ayuda a reducir la rigidez y el dolor después de ejercicios intensos o jornadas largas.</li>
+							<li><b>Alivio Profundo de Tensión:</b> Penetra las capas musculares profundas, ofreciendo un masaje intenso que relaja los nudos y alivia la tensión.</li>
+							<li><b>Aumento de la Circulación:</b> La vibración y percusión mejora la circulación sanguínea, facilitando la oxigenación y nutrición de los músculos.</li>
+							<li><b>Versatilidad y Conveniencia:</b> Fácil de usar y portátil, permite realizar un masaje efectivo en cualquier momento y lugar.</li>
 						</ul>
 					</div>
 				</div>
@@ -58,7 +57,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="section-title text-center">
-						<h2><span>You may also like</span></h2>
+						<h2><span>Te Podria Gustar</span></h2>
 					</div>
 				</div>
 			</div>
@@ -66,12 +65,12 @@
 				<div class="col-md-4">
 					<div class="service-item wow fadeIn">
 						<div class="thumb">
-							<a href="service-single.html"><img src="/static/img/services/2.jpg" alt=""></a>
+							<a href="{% url 'drenaje' %}"><img src="/static/img/namaste/drenaje.jpg" alt=""></a>
 						</div>
 						<div class="service-info text-center">
-							<h3><a href="service-single.html">Stone Message</a></h3>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
-							<a href="service-single.html" class="btn btn-default">Read More</a>
+							<h3><a href="{% url 'drenaje' %}">Drenaje Linfático</a></h3>
+							<p>Nuestro masaje de drenaje linfático, una técnica suave y terapéutica diseñada para estimular el sistema linfático y promover la eliminación de toxinas del cuerpo.</p>
+							<a href="{% url 'drenaje' %}" class="btn btn-default">Leer Mas</a>
 						</div>
 					</div>
 				</div>
@@ -79,12 +78,12 @@
 				<div class="col-md-4">
 					<div class="service-item wow fadeIn">
 						<div class="thumb">
-							<a href="service-single.html"><img src="/static/img/services/3.jpg" alt=""></a>
+							<a href="{% url 'vacuslim' %}"><img src="/static/img/namaste/vacuslim.jpg" alt=""></a>
 						</div>
 						<div class="service-info text-center">
-							<h3><a href="service-single.html">Body Message</a></h3>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
-							<a href="service-single.html" class="btn btn-default">Read More</a>
+							<h3><a href="{% url 'vacuslim' %}">Vacuslim-48</a></h3>
+							<p>Nuestro tratamiento de Vacuslim combina la succión controlada con masajes terapéuticos para estimular la circulación, reducir la celulitis y mejorar la firmeza de la piel.</p>
+							<a href="{% url 'vacuslim' %}" class="btn btn-default">Leer Mas</a>
 						</div>
 					</div>
 				</div>
@@ -92,12 +91,12 @@
 				<div class="col-md-4">
 					<div class="service-item wow fadeIn">
 						<div class="thumb">
-							<a href="service-single.html"><img src="/static/img/services/5.jpg" alt=""></a>
+							<a href="{% url 'waxing' %}"><img src="/static/img/namaste/waxing.jpg" alt=""></a>
 						</div>
 						<div class="service-info text-center">
-							<h3><a href="service-single.html">Aromatherapy</a></h3>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
-							<a href="service-single.html" class="btn btn-default">Read More</a>
+							<h3><a href="{% url 'waxing' %}">Depilación</a></h3>
+							<p>Disfruta de una piel suave y sin vello con nuestros servicios profesionales de depilación con cera.</p>
+							<a href="{% url 'waxing' %}" class="btn btn-default">Leer Mas</a>
 						</div>
 					</div>
 				</div>
@@ -106,7 +105,7 @@
 			
 			<div class="row">
 				<div class="col-md-12 text-center">
-					<a href="{% url 'contacto' %}" class="btn btn-primary">Contact us</a>
+					<a href="{% url 'contacto' %}" class="btn btn-primary">Contactanos</a>
 				</div>
 			</div>
 		</div>
