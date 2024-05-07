@@ -2141,3 +2141,8 @@ ul.navbar-nav.ml-auto{
 	font-size: 24px; /* Adjust size of the play icon */
 	/*color: white;*/ /* Change color as needed */
 }
+
+.img-block img {
+    height: 500px;  /* Adjust the height as needed */
+	width: 450px;
+}
