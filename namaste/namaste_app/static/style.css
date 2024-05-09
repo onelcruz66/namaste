@@ -2126,7 +2126,7 @@ ul.navbar-nav.ml-auto{
 .thumb {
 	position: relative; /* Makes this div the reference for positioning inner elements */
 	width: 100%; /* Adjust width as necessary */
-	height: auto; /* Adjust height as necessary */
+	height: auto;  /*Adjust height as necessary */
 }
 
 .play-button {

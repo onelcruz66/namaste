@@ -23,4 +23,5 @@ urlpatterns = [
     path('maderoterapia-facial/', views.maderoterapia_facial, name='maderoterapia-facial'),
     path('lipolaser/', views.lipolaser, name='lipolaser'),
     path('vacumterapia/', views.vacumterapia, name='vacumterapia'),
+    path('lebody/', views.lebody, name='lebody'),
 ]

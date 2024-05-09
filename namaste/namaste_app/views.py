@@ -64,3 +64,6 @@ def lipolaser(request):
 
 def vacumterapia(request):
     return render(request, 'vacumterapia.html')
+
+def lebody(request):
+    return render(request, 'lebody.html')
