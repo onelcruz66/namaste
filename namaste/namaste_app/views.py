@@ -56,5 +56,11 @@ def copas_chinas(request):
 def pistola_masaje(request):
     return render(request, 'massage_pistol.html')
 
-def mesoterapia(request):
-    return render(request, 'mesotherapy.html')
+def maderoterapia_facial(request):
+    return render(request, 'facial_wood_therapy.html')
+
+def lipolaser(request):
+    return render(request, 'lipolaser.html')
+
+def vacumterapia(request):
+    return render(request, 'vacumterapia.html')
