@@ -26,6 +26,9 @@
 					<div class="service-item wow fadeIn">
 						<div class="thumb">
 							<a href="{% url 'lipolaser' %}"><img src="/static/img/namaste/lipolaser.jpg" alt=""></a>
+							<div class="play-button">
+								<a href="#" data-toggle="modal" data-target="#video-modal"><i class="fa fa-play"></i></a>
+							</div>
 						</div>
 						<div class="service-info text-center">
 							<h3><a href="{% url 'lipolaser' %}">Lipoláser</a></h3>
@@ -111,6 +114,27 @@
 		</div>
 	</section>
 	<!-- end services -->
+
+	<!-- Start Video Modal -->
+	<div class="modal fade modal-vcenter" id="video-modal" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times-circle-o"></i></button>
+                </div>
+                <div class="modal-body">
+                    <video width="760" height="500" controls>
+                        <source src="/static/img/namaste/lipolaser.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>                
+                <!-- <div class="modal-body">
+					<iframe width="760" height="500" src="https://www.youtube.com/embed/EEnkifmw25U?rel=0&amp;showinfo=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div> -->
+            </div>
+        </div>
+    </div> 
+	<!-- End Video Modal --> 
 	
 	<!-- Appointment Modal -->
     <div class="modal fade modal-vcenter" id="appointment" role="dialog">
