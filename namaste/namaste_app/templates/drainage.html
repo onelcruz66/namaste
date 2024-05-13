@@ -6,11 +6,11 @@
 		<div class="page-banner-caption">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-12">
+					<div class="col-md-12" id="drainage">
 						<h1>Drenaje Linfático</h1>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-							<li class="breadcrumb-item active">Drenaje Linfático</li>
+							<li class="breadcrumb-item active" id="drenaje">Drenaje Linfático</li>
 						</ol>
 					</div>
 				</div>
@@ -25,10 +25,7 @@
 				<div class="col-md-4">
 					<div class="service-item wow fadeIn">
 						<div class="thumb">
-							<a href="{% url 'drenaje' %}"><img src="/static/img/namaste/drenaje.jpg" alt=""></a>
-							<div class="play-button">
-								<a href="#" data-toggle="modal" data-target="#video-modal"><i class="fa fa-play"></i></a>
-							</div>
+							<a href="{% url 'drenaje' %}"><img src="/static/img/namaste/drenaje2.jpg" alt=""></a>
 						</div>
 						<div class="service-info text-center">
 							<h3><a href="{% url 'drenaje' %}">Drenaje Linfático</a></h3>
@@ -114,27 +111,6 @@
 		</div>
 	</section>
 	<!-- end services -->
-
-	<!-- Start Video Modal -->
-	<div class="modal fade modal-vcenter" id="video-modal" role="dialog">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times-circle-o"></i></button>
-                </div>
-                <div class="modal-body">
-                    <video width="760" height="500" controls>
-                        <source src="/static/img/namaste/drenaje.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>                
-                <!-- <div class="modal-body">
-					<iframe width="760" height="500" src="https://www.youtube.com/embed/EEnkifmw25U?rel=0&amp;showinfo=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div> -->
-            </div>
-        </div>
-    </div> 
-	<!-- End Video Modal --> 
 	
 	<!-- Appointment Modal -->
     <div class="modal fade modal-vcenter" id="appointment" role="dialog">

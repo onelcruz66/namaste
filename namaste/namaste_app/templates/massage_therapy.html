@@ -6,11 +6,11 @@
 		<div class="page-banner-caption">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-12">
+					<div class="col-md-12" id="massage-therapy">
 						<h1>Quiromasaje</h1>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-							<li class="breadcrumb-item active">Quiromasaje</li>
+							<li class="breadcrumb-item active" id="quiromasaje">Quiromasaje</li>
 						</ol>
 					</div>
 				</div>
@@ -25,10 +25,10 @@
 				<div class="col-md-4">
 					<div class="service-item wow fadeIn">
 						<div class="thumb">
-							<a href="service-single.html"><img src="/static/img/namaste/quiromasaje.jpg" alt=""></a>
+							<a href="{% url 'quiromasaje' %}"><img src="/static/img/namaste/quiromasaje.jpg" alt=""></a>
 						</div>
 						<div class="service-info text-center">
-							<h3><a href="service-single.html">Quiromasaje</a></h3>
+							<h3><a href="{% url 'quiromasaje' %}">Quiromasaje</a></h3>
 							<p>Consiste en un conjunto de técnicas que tienen como función mejorar los problemas del paciente de acuerdo a sus necesidades.</p>
 							<a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reserva Ahora</a>
 						</div>
@@ -64,7 +64,7 @@
 				<div class="col-md-4">
 					<div class="service-item wow fadeIn">
 						<div class="thumb">
-							<a href="{% url 'drenaje' %}"><img src="/static/img/namaste/drenaje.jpg" alt=""></a>
+							<a href="{% url 'drenaje' %}"><img src="/static/img/namaste/drenaje2.jpg" alt=""></a>
 						</div>
 						<div class="service-info text-center">
 							<h3><a href="{% url 'drenaje' %}">Drenaje Linfático</a></h3>

@@ -1008,7 +1008,8 @@ iframe {
 	font-size:14px;
 }
 .breadcrumb-item.active {
-    color: #929292;
+    /*color: #929292;*/
+	color: #333;
 }
 .team{
 	width:100%;
@@ -2145,4 +2146,128 @@ ul.navbar-nav.ml-auto{
 .img-block img {
     height: 500px;  /* Adjust the height as needed */
 	width: 450px;
+}
+
+/* This will target the h1 tag inside the div with id 'swedish' and make the text color white */
+#swedish h1 {
+    color: white;
+}
+
+/* This will target the first li tag inside the ol.breadcrumb within the div with id 'swedish' and make the text color white */
+#swedish .breadcrumb li:first-child a {
+    color: white;
+}
+
+#masaje-sueco {
+	color: white;
+}
+
+/* This will target the h1 tag inside the div with id 'gold-detox' and make the text color #DF8710 */
+#gold-detox h1 {
+    color: white;
+}
+
+/* This will target the first li tag inside the ol.breadcrumb within the div with id 'gold-detox' and make the text color white */
+#gold-detox .breadcrumb li:first-child a {
+    color: white;
+}
+
+/* This will target the h1 tag inside the div with id 'gold-detox' and make the text color #DF8710 */
+#metal-therapy h1 {
+    color: white;
+}
+
+/* This will target the first li tag inside the ol.breadcrumb within the div with id 'gold-detox' and make the text color white */
+#metal-therapy .breadcrumb li:first-child a {
+    color: white;
+}
+
+/* This will target the h1 tag inside the div with id 'gold-detox' and make the text color #DF8710 */
+#drainage h1 {
+    color: white;
+}
+
+/* This will target the first li tag inside the ol.breadcrumb within the div with id 'gold-detox' and make the text color white */
+#drainage .breadcrumb li:first-child a {
+    color: white;
+}
+
+#massage-therapy {
+	margin-top: -150px;
+}
+
+/* This will target the h1 tag inside the div with id 'gold-detox' and make the text color #DF8710 */
+#massage-therapy h1 {
+    color: white;
+}
+
+/* This will target the first li tag inside the ol.breadcrumb within the div with id 'gold-detox' and make the text color white */
+#massage-therapy .breadcrumb li:nth-child(1) a {
+    color: white;
+}
+
+#quiromasaje {
+	color: white;
+}
+
+#drenaje {
+	color: white;
+}
+
+#detox {
+	color: white;
+}
+
+#metaloterapia {
+	color: white;
+}
+
+#chinese-cups {
+	margin-top: -150px;
+}
+
+/* This will target the h1 tag inside the div with id 'gold-detox' and make the text color #DF8710 */
+#chinese-cups h1 {
+    color: white;
+}
+
+/* This will target the first li tag inside the ol.breadcrumb within the div with id 'gold-detox' and make the text color white */
+#chinese-cups .breadcrumb li:nth-child(1) a {
+    color: white;
+}
+
+#copas-chinas {
+	color: white;
+}
+
+#massage-pistol {
+	margin-left: 800px;
+}
+
+/* This will target the h1 tag inside the div with id 'gold-detox' and make the text color #DF8710 */
+#facial-wood-therapy h1 {
+    color: white;
+}
+
+/* This will target the first li tag inside the ol.breadcrumb within the div with id 'gold-detox' and make the text color white */
+#facial-wood-therapy .breadcrumb li:nth-child(1) a {
+    color: white;
+}
+
+#maderoterapia-facial {
+	color: white;
+}
+
+/* This will target the h1 tag inside the div with id 'gold-detox' and make the text color #DF8710 */
+#lipolaser h1 {
+    color: white;
+}
+
+/* This will target the first li tag inside the ol.breadcrumb within the div with id 'gold-detox' and make the text color white */
+#lipolaser .breadcrumb li:nth-child(1) a {
+    color: white;
+}
+
+#lipoláser {
+	color: white;
 }
