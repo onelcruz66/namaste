@@ -2148,6 +2148,13 @@ ul.navbar-nav.ml-auto{
 	width: 450px;
 }
 
+#index-play-button {
+    position: absolute; /* Absolute positioning relative to its nearest positioned ancestor */
+    top: 50%; /* Start by centering vertically, then move down slightly */
+    left: 50%; /* Start by centering horizontally, then move right slightly */
+    transform: translate(-85px, -50px); /* Move the button down and to the right by 20 pixels */
+}
+
 /* This will target the h1 tag inside the div with id 'swedish' and make the text color white */
 #swedish h1 {
     color: white;
