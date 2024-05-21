@@ -94,8 +94,65 @@ h6{
 	font-family: 'Luxurious Roman', serif;
 }
 .hero-text h1 {
-    color: white;
+    color: #DF8710;
+	font-size: 48px;
+	margin-left: 20px;
 }
+
+.hero-text h2 {
+    color: white;
+	font-size: 30px;
+	margin-left: 20px;
+}
+
+.hero-text .btn {
+    margin-left: 40px;  /* Adjusts the left margin to move the button to the right */
+}
+
+.mobile-image {
+	display: none;
+}
+
+/* Desktop view */
+@media (min-width: 601px) { /* Adjust this breakpoint to suit your design */
+    .desktop-image {
+        display: block; /* Show desktop image */
+    }
+    .mobile-image {
+        display: none; /* Hide mobile image */
+    }
+}
+/* Mobile view */
+/* Default styles: hide h2 and the button on mobile */
+@media (max-width: 600px) { /* Adjust max-width as needed for your mobile breakpoint */
+    .hero-text a.btn {
+        display: none; /* This will hide the h2 and the button */
+    }
+}
+
+/* You might also want to ensure img and h1 are displayed as you want them */
+@media (max-width: 600px) {
+    .hero-text h1 {
+        /* display: block; Ensures img and h1 are visible and not affected by other CSS */
+        /* width: 100%; /* Optional: makes the image and h1 take full width of the container */
+        /* max-width: 100%; Ensures image is not bigger than its container */ 
+		font-size: 36px;
+		margin-left: 5px;
+		margin-top: 20px;
+    }
+	.hero-text h2 {
+		font-size: 18px;
+		margin-left: 0px;
+	}
+	.desktop-image {
+        display: none; /* Hide desktop image */
+    }
+    .mobile-image {
+        display: block; /* Show mobile image */
+		margin-left: 25px;
+    }
+}
+
 h1 {
     font-weight: 600;
 	font-size:36px;
