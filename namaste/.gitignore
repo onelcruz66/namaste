@@ -1,3 +1,6 @@
 namaste_app/migrations/__pycache__/*
 namaste_app/__pycache__/*
 namaste/__pycache__/*
+static/*
+db.*
+.gitignore

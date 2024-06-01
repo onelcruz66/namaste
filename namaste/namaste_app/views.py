@@ -25,64 +25,367 @@ def home(request):
     return render(request, "index.html", context)
 
 def sobre_nosotros(request):
-    return render(request, 'about-us.html')
+
+    context = {}
+
+    # Handle form submissions
+    if request.method == "POST":
+        form = RequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(request.path) 
+    else:
+        # Render the form for GET requests
+        form = RequestForm()
+
+    context['form'] = form
+
+    return render(request, 'about-us.html', context)
 
 def contacto(request):
-    return render(request, 'contact-us.html')
+
+    context = {}
+
+    if request.method == "POST":
+        if 'contact_form' in request.POST:
+            contact_form = MessageForm(request.POST)
+            if contact_form.is_valid():
+                contact_form.save()
+                return redirect(request.path)
+        elif 'request_form' in request.POST:
+            request_form = RequestForm(request.POST)
+            if request_form.is_valid():
+                request_form.save()
+                return redirect(request.path)
+    else:
+        contact_form = MessageForm()
+        request_form = RequestForm()
+
+    context['contact_form'] = contact_form
+    context['request_form'] = request_form
+
+    return render(request, 'contact-us.html', context)
 
 def servicios(request):
-    return render(request, 'services.html')
 
-def servicio(request):
-    return render(request, 'service-single.html')
+    context = {}
+
+    # Handle form submissions
+    if request.method == "POST":
+        form = RequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(request.path) 
+    else:
+        # Render the form for GET requests
+        form = RequestForm()
+
+    context['form'] = form
+
+    return render(request, 'services.html', context)
 
 def masaje_sueco(request):
-    return render(request, 'swedish_massage.html')
+
+    context = {}
+
+    # Handle form submissions
+    if request.method == "POST":
+        form = RequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(request.path) 
+    else:
+        # Render the form for GET requests
+        form = RequestForm()
+
+    context['form'] = form
+
+    return render(request, 'swedish_massage.html', context)
 
 def post_operatorio(request):
-    return render(request, 'post_op.html')
+
+    context = {}
+
+    # Handle form submissions
+    if request.method == "POST":
+        form = RequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(request.path) 
+    else:
+        # Render the form for GET requests
+        form = RequestForm()
+
+    context['form'] = form
+
+    return render(request, 'post_op.html', context)
 
 def masaje_prenatal(request):
-    return render(request, 'prenatal.html')
+
+    context = {}
+
+    # Handle form submissions
+    if request.method == "POST":
+        form = RequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(request.path) 
+    else:
+        # Render the form for GET requests
+        form = RequestForm()
+
+    context['form'] = form
+
+    return render(request, 'prenatal.html', context)
 
 def masaje_profundo(request):
-    return render(request, 'deep_massage.html')
+
+    context = {}
+
+    # Handle form submissions
+    if request.method == "POST":
+        form = RequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(request.path) 
+    else:
+        # Render the form for GET requests
+        form = RequestForm()
+
+    context['form'] = form
+
+    return render(request, 'deep_massage.html', context)
 
 def detox_oro(request):
-    return render(request, 'gold_detox.html')
+
+    context = {}
+
+    # Handle form submissions
+    if request.method == "POST":
+        form = RequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(request.path) 
+    else:
+        # Render the form for GET requests
+        form = RequestForm()
+
+    context['form'] = form
+
+    return render(request, 'gold_detox.html', context)
 
 def vacuslim(request):
-    return render(request, 'vacuslim.html')
+
+    context = {}
+
+    # Handle form submissions
+    if request.method == "POST":
+        form = RequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(request.path) 
+    else:
+        # Render the form for GET requests
+        form = RequestForm()
+
+    context['form'] = form
+
+    return render(request, 'vacuslim.html', context)
 
 def waxing(request):
-    return render(request, 'waxing.html')
+
+    context = {}
+
+    # Handle form submissions
+    if request.method == "POST":
+        form = RequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(request.path) 
+    else:
+        # Render the form for GET requests
+        form = RequestForm()
+
+    context['form'] = form
+
+    return render(request, 'waxing.html', context)
 
 def terapia_madera(request):
-    return render(request, 'wood_therapy.html')
+
+    context = {}
+
+    # Handle form submissions
+    if request.method == "POST":
+        form = RequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(request.path) 
+    else:
+        # Render the form for GET requests
+        form = RequestForm()
+
+    context['form'] = form
+
+    return render(request, 'wood_therapy.html', context)
 
 def terapia_metal(request):
-    return render(request, 'metal_therapy.html')
+
+    context = {}
+
+    # Handle form submissions
+    if request.method == "POST":
+        form = RequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(request.path) 
+    else:
+        # Render the form for GET requests
+        form = RequestForm()
+
+    context['form'] = form
+
+    return render(request, 'metal_therapy.html', context)
 
 def drenaje(request):
-    return render(request, 'drainage.html')
+
+    context = {}
+
+    # Handle form submissions
+    if request.method == "POST":
+        form = RequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(request.path) 
+    else:
+        # Render the form for GET requests
+        form = RequestForm()
+
+    context['form'] = form
+
+    return render(request, 'drainage.html', context)
 
 def quiromasaje(request):
-    return render(request, 'massage_therapy.html')
+
+    context = {}
+
+    # Handle form submissions
+    if request.method == "POST":
+        form = RequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(request.path) 
+    else:
+        # Render the form for GET requests
+        form = RequestForm()
+
+    context['form'] = form
+
+    return render(request, 'massage_therapy.html', context)
 
 def copas_chinas(request):
-    return render(request, 'chinese_cups.html')
+
+    context = {}
+
+    # Handle form submissions
+    if request.method == "POST":
+        form = RequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(request.path) 
+    else:
+        # Render the form for GET requests
+        form = RequestForm()
+
+    context['form'] = form
+
+    return render(request, 'chinese_cups.html', context)
 
 def pistola_masaje(request):
-    return render(request, 'massage_pistol.html')
+
+    context = {}
+
+    # Handle form submissions
+    if request.method == "POST":
+        form = RequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(request.path) 
+    else:
+        # Render the form for GET requests
+        form = RequestForm()
+
+    context['form'] = form
+
+    return render(request, 'massage_pistol.html', context)
 
 def maderoterapia_facial(request):
-    return render(request, 'facial_wood_therapy.html')
+
+    context = {}
+
+    # Handle form submissions
+    if request.method == "POST":
+        form = RequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(request.path) 
+    else:
+        # Render the form for GET requests
+        form = RequestForm()
+
+    context['form'] = form
+
+    return render(request, 'facial_wood_therapy.html', context)
 
 def lipolaser(request):
-    return render(request, 'lipolaser.html')
+
+    context = {}
+
+    # Handle form submissions
+    if request.method == "POST":
+        form = RequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(request.path) 
+    else:
+        # Render the form for GET requests
+        form = RequestForm()
+
+    context['form'] = form
+
+    return render(request, 'lipolaser.html', context)
 
 def vacumterapia(request):
-    return render(request, 'vacumterapia.html')
+
+    context = {}
+
+    # Handle form submissions
+    if request.method == "POST":
+        form = RequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(request.path) 
+    else:
+        # Render the form for GET requests
+        form = RequestForm()
+
+    context['form'] = form
+
+    return render(request, 'vacumterapia.html', context)
 
 def lebody(request):
-    return render(request, 'lebody.html')
+
+    context = {}
+
+    # Handle form submissions
+    if request.method == "POST":
+        form = RequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(request.path) 
+    else:
+        # Render the form for GET requests
+        form = RequestForm()
+
+    context['form'] = form
+
+    return render(request, 'lebody.html', context)

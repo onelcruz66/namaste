@@ -10,12 +10,12 @@ class ServiceType(models.TextChoices):
 
 class RequestAppointment(models.Model):
     first_name = models.CharField(max_length=50, null=False, blank=False)
-    last_name = models.CharField(max_length=50, null=False, blank=False)
+    last_name = models.CharField(max_length=50, null=False, blank=False, default='')
     email_address = models.CharField(max_length=50, blank=False, default='')
     phone_number = models.CharField(max_length=50, blank=False, default='')
-    address = models.CharField(max_length=50, blank=False, default='')
-    zip = models.CharField(max_length=50, blank=False, default='')
-    city = models.CharField(max_length=50, blank=False, default='')
+    address = models.CharField(max_length=50, blank=True, default='')
+    zip = models.CharField(max_length=50, blank=True, default='')
+    city = models.CharField(max_length=50, blank=True, default='')
     service = models.CharField(max_length=50, choices=ServiceType.choices, default='')
     date = models.CharField(max_length=50, blank=False, default='')
     time = models.CharField(max_length=50, blank=False, default='')
@@ -23,7 +23,7 @@ class RequestAppointment(models.Model):
 
 class MessageRequest(models.Model):
     first_name = models.CharField(max_length=80, null=False, blank=False)
-    last_name = models.CharField(max_length=80, null=False, blank=False)
+    last_name = models.CharField(max_length=80, null=False, blank=False, default='')
     email_address = models.CharField(max_length=50, blank=False, default='')
     question = models.TextField(max_length=200, null=False, blank=False)
 
@@ -35,12 +35,12 @@ class ApprovedServiceType(models.TextChoices):
 
 class ApprovedAppointments(models.Model):
     first_name = models.CharField(max_length=50, null=False, blank=False)
-    last_name = models.CharField(max_length=50, null=False, blank=False)
+    last_name = models.CharField(max_length=50, null=False, blank=False, default='')
     email_address = models.CharField(max_length=50, blank=False, default='')
     phone_number = models.CharField(max_length=50, blank=False, default='')
-    address = models.CharField(max_length=50, blank=False, default='')
-    zip = models.CharField(max_length=50, blank=False, default='')
-    city = models.CharField(max_length=50, blank=False, default='')
+    address = models.CharField(max_length=50, blank=True, default='')
+    zip = models.CharField(max_length=50, blank=True, default='')
+    city = models.CharField(max_length=50, blank=True, default='')
     service = models.CharField(max_length=50, choices=ApprovedServiceType.choices, default='')
     date = models.CharField(max_length=50, blank=False, default='')
     time = models.CharField(max_length=50, blank=False, default='')

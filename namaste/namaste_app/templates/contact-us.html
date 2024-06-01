@@ -63,31 +63,32 @@
 			
 			<div class="row">
 				<div class="col-md-12 col-lg-8 offset-lg-2">
-					<form id="contactForm" class="contact-form wow fadeIn" data-toggle="validator" method="post">
+					<form action="/contacto/" method="POST" data-toggle="validator">
+						{% csrf_token %}
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
-									<input placeholder="Nombre" id="fname" class="form-control" name="fname" type="text" required data-error="Please enter your first name">
+									<input placeholder="Nombre" id="fname" class="form-control" name="first_name" type="text" required data-error="Provee su primer nombre">
 									<div class="help-block with-errors"></div>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<input placeholder="Apellido" id="lname" class="form-control" name="lname" type="text">
+									<input placeholder="Apellido" id="lname" class="form-control" name="last_name" type="text">
 								</div>
 							</div>
 						</div>
 						<div class="form-group">
-							<input placeholder="Correo Electronico" id="email" class="form-control" name="email" type="email" required data-error="Please enter your valid email address"> 
+							<input placeholder="Correo Electronico" id="email" class="form-control" name="email_address" type="email" required data-error="Provee su correo electronico"> 
 							<div class="help-block with-errors"></div>
 						</div>
 						
 						<div class="form-group">
-							<textarea placeholder="Pregunta" id="message" cols="20" rows="8" class="form-control" required data-error="Please enter your comments"></textarea>
+							<textarea placeholder="Pregunta" id="message" cols="20" rows="8" class="form-control" name="question" required data-error="Indica su pregunta"></textarea>
 							<div class="help-block with-errors"></div>
 						</div>
 						<div class="text-center">
-							<input value="Enviar Mensaje" name="submit" class="btn btn-primary" type="submit">
+							<input value="Enviar Mensaje" name="contact_form" class="btn btn-primary" type="submit">
 							<div id="msgSubmit" class="hidden"></div>
 						</div>
 					</form>
@@ -120,9 +121,9 @@
 		</div>
 	</section>
 	<!-- end appointment -->
-
+<!--<form id="reservation-form" method="post" data-toggle="validator">-->
 	<!-- Appointment Modal -->
-    <div class="modal fade modal-vcenter" id="appointment" role="dialog">
+     <div class="modal fade modal-vcenter" id="appointment" role="dialog">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -130,8 +131,8 @@
                     <h2>RESERVA TU CITA</h2>
                 </div>
                 <div class="modal-body">
-					<!--<form id="reservation-form" method="post" data-toggle="validator">-->
-					<form action="/" method="POST" data-toggle="validator">
+					
+					<form action="/contacto/" method="POST" data-toggle="validator">
 						{% csrf_token %}
 						<div class="row">
 							<div class="col-xs-12 col-sm-6">
@@ -209,7 +210,7 @@
 											<i class="fa fa-calendar"></i>
 										</div>
 										<input type="text" id="rdate" class="form-control date-pic" name="date" placeholder="mm/dd/yyyy" required data-error="Escoga fecha de reservación">
-									</div><!-- /.input group -->
+									</div>
 									<div class="help-block with-errors"></div>
 								</div>
 							</div>
@@ -223,24 +224,24 @@
 												<i class="fa fa-clock-o"></i>
 											</div>
 											<input type="text" id="rtime" name="time" class="form-control timepicker" required data-error="Escoga hora de reservación">
-										</div><!-- /.input group -->
+										</div>
 										<div class="help-block with-errors"></div>
-									</div><!-- /.form group -->
+									</div>
 								</div>
 							</div>
 						</div>
 						
 						<div class="submit-block text-right">
 							<a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
-							<input value="Submit" name="submit" class="btn btn-primary" type="submit">
+							<input value="Submit" name="request_form" class="btn btn-primary" type="submit">
 						</div>
 						
-						<div id="msgSubmitRes" class="h3 text-center hidden"></div>
+						<!-- <div id="msgSubmitRes" class="h3 text-center hidden"></div> -->
 						
 					</form>
                 </div>
             </div>
-        </div>
-    </div>
+        </div> 
+    </div> 
 	
     {% endblock %}
