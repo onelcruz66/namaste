@@ -1,0 +1,250 @@
+{% extends "admin_base.html" %}{% block title %}Informacion de Cliente{% endblock %}
+{% load widget_tweaks %}
+{% block content %}
+<style>
+    /* Base styles for larger screens */
+#registro {
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px;
+box-sizing: border-box;
+}
+
+#registro .container {
+max-width: 960px;
+width: 100%;
+margin: 0 auto;
+padding: 20px;
+background-color: #fff;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
+}
+
+#registro .text-block {
+text-align: center;
+margin-bottom: 20px;
+}
+
+#registro .text-block h2 {
+margin-bottom: 15px;
+color: #333;
+}
+
+#registro .text-block p {
+margin-bottom: 10px;
+}
+
+.input-group {
+margin-bottom: 10px;
+}
+
+.input-group-btn {
+display: flex;
+align-items: center;
+}
+
+.modal-body {
+    margin-left: 200px;
+}
+
+/* Responsive styles for tablets */
+@media (max-width: 769px) {
+#registro .container {
+    padding: 20px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#registro .text-block h2 {
+    font-size: 1.5rem; /* Reduce the font size a bit */
+}
+.modal-body {
+    padding: 0 15px;  /* Adds padding to avoid touching the edges */
+}
+
+.form-group {
+    width: 100%; /* Ensures full width usage within the modal body */
+}
+
+.form-group input, .form-group div {
+    width: 100%; /* Makes input fields and radio button groups take full width */
+}
+
+.row {
+    display: block; /* Stacks the columns vertically */
+    margin: 0; /* Removes any default margin for rows */
+}
+
+[class*="col-"] {
+    float: none;
+    width: 100%; /* Forces all column classes to take full width */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Aligns the form contents centrally */
+}
+
+button {
+    width: 100%; /* Full width buttons for better mobile interaction */
+    margin-top: 10px; /* Adds space between buttons if stacked */
+}
+}
+</style>
+
+<div>
+    <section class="section-spacing" id="registro">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="text-block wow fadeIn">
+                        <h2>Cliente #{{ user.id }}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="text-block wow fadeIn">
+                        <p><b>Nombre:</b> {{ user.first_name }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="text-block wow fadeIn">
+                        <p><b>Apellido:</b> {{ user.last_name }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="text-block wow fadeIn">
+                        <p><b>Email:</b> {{ user.email }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="text-block wow fadeIn">
+                        <p><b>Numero de Telefono:</b> {{ user.phone_number }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="text-block wow fadeIn">
+                        <p><b>Dirección:</b> {{ user.address }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="text-block wow fadeIn">
+                        <p><b>Tiene Condicion Medica:</b> {{ user.has_condition }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="text-block wow fadeIn">
+                        <p><b>Nombre De Condicion Medica:</b> {{ user.condition_names }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="text-block wow fadeIn">
+                        <p><b>Acepto Que Se Tomara Fotos:</b> {{ user.accept_photo }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="text-block wow fadeIn">
+                        <p><b>Acepto Compartir Contenido En Redes Sociales:</b> {{ user.accept_publishing }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="text-block wow fadeIn">
+                        <p><b>Fecha De Firma:</b> {{ user.sign_date }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="text-block wow fadeIn">
+                        <p><b>Firma:</b></p>
+                        {% if user.signature %}
+                            <img src="{{ user.signature.url }}" alt="Firma De Cliente">
+                        {% else %}
+                            <p>No signature uploaded.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </section>
+    <!-- End Customer Information -->
+
+    <section class="section-spacing" id="registro">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="text-block wow fadeIn">
+                        <h2>Añadir Entrada:</h2>
+                    </div>
+                </div>
+                <form method="post">
+                {% csrf_token %}
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12">
+                                <div class="form-group">
+                                    <label>Tratamiento*</label>
+                                    <input type="text" id="remail" class="form-control" name="treatment" required data-error="Provee tratamiento">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Metodo De Pago</label>
+                            <select id="rselect-service" class="select-option" name="payment_type">
+                                <option value="ATHMovil">ATHMovil</option>
+                                <option value="Cash">Cash</option>
+                                <option value="Credit">Credit</option>
+                                <option value="Debit">Debit</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Pago Total ($)*</label>
+                            <input type="number" step="0.01" id="paymentAmount" class="form-control" name="payment_amount" required data-error="Provee total de cantidad que se pago">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Comentarios" id="comments" cols="20" rows="8" class="form-control" name="comments"></textarea>
+                        </div>
+                        <div class="text-center">
+                            <input value="Añadir Cliente" name="client_form" class="btn btn-primary" type="submit">
+                            <div id="msgSubmit" class="hidden"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+<script>
+    document.getElementById('paymentAmount').addEventListener('input', function (e) {
+        var value = parseFloat(e.target.value);
+        if (!isNaN(value)) {
+            e.target.value = value.toFixed(2);
+        }
+    });
+</script>

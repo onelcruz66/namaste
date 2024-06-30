@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Namaste - Login</title>
+	<link rel="shortcut icon" href="/static/img/namaste/favicon-32x32.png" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/img/namaste/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/static/img/namaste/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/namaste/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/img/namaste/favicon-16x16.png">
+    <link rel="manifest" href="/static/img/namaste/site.webmanifest">
+    <!-- Bootstrap Core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Animate CSS -->
+	<link href="/static/css/animate.css" rel="stylesheet">
+    <!-- Venobox CSS -->
+	<link href="/static/css/venobox.css" rel="stylesheet">
+	<!-- Owl Carousel CSS -->
+	<link href="/static/css/owl.carousel.min.css" rel="stylesheet">
+	<!--Chosen-->
+	<link href="/static/css/chosen.css" rel="stylesheet">
+	<!--Time picker-->
+	<link href="/static/css/bootstrap-timepicker.min.css" rel="stylesheet">
+	<!--Date picker-->
+	<link href="/static/css/datepicker.css" rel="stylesheet">
+	<!-- Font-awesome -->
+	<link rel="stylesheet" href="/static/fonts/font-awesome/css/font-awesome.min.css">
+    <!-- Font-awesome2 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+	<!-- Google font-->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,400i,500,600,700,800,900" rel="stylesheet">
+	<!-- Main CSS -->
+	<link href="/static/style.css" rel="stylesheet">
+	
+</head>
+
+<body>
+	<!--Preload-->
+	<div class="preloader">
+		<div class="preloader_image">
+			<div class="sk-double-bounce">
+				<div class="sk-child sk-double-bounce1"></div>
+				<div class="sk-child sk-double-bounce2"></div>
+			</div>
+		</div>
+	</div>
+
+    <nav class="navbar navbar-expand-lg bg-white">
+		<div class="container">
+			<a class="navbar-brand" href="{% url 'dashboard' %}">
+                <img src="/static/img/namaste/colored_buddha_logo (1).jpg" alt="Logo">
+            </a>
+			<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="main-nav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="{% url 'home' %}">HOME</a>					
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{% url 'sobre-nosotros' %}">SOBRE NOSOTROS</a>					
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{% url 'servicios' %}">SERVICIOS</a>					
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{% url 'contacto' %}">CONTACTO</a>					
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+    <style>
+        
+        #login {
+            color: white;
+            text-align: center;
+            margin-left: -280px;
+        }
+
+        form {
+            text-align: center;
+            color: white;
+            max-width: 400px;
+            margin-left: -70px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+    
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+        }
+    
+        button {
+            background-color: #DF8710;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    
+        button:hover {
+            background-color: #DF8710;
+        }
+    </style>
+
+    <section class="carousel slide" id="banner" data-ride="carousel" data-pause="false">
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image:url(/static/img/namaste/buddha_hero_banner.jpg)">
+                <div class="banner-caption">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <style>
+                                    .margin-adjust {
+                                        margin-left: 650px; /* Adjusts left margin to push content to the right */
+                                    }
+
+                                    @media (max-width: 767px) {
+                                        .margin-adjust {
+                                            margin-left: 170px;
+                                        }
+                                    }
+                                </style>
+                                <div class="hero-text margin-adjust">
+                                    <!-- Desktop image -->
+                                    <!-- <img src="/static/img/namaste/namaste_hand_logo_black.jpg" alt="namaste_logo" class="desktop-image animated fadeInDown"> -->
+
+                                    <!-- Mobile image -->
+                                    <!-- <img src="/static/img/namaste/namaste_hand_logo_black_136x136.jpg" alt="namaste_logo_mobile" class="mobile-image animated fadeInDown"> -->
+
+                                    <h2 id="login">Log In</h2>
+                                    <form method="POST" action="{% url 'login' %}">
+                                        {% csrf_token %}
+                                        {{ form }}
+                                        <button type="submit">Log In</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- end banner -->
+    <!-- <h2 id="login">Log In</h2>
+    <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Log In</button>
+    </form> -->
+
+    <!-- Bact to top -->
+	<div class="back-top">
+		<a href="#"><i class="fa fa-angle-up"></i></a>
+	</div>
+
+    <!-- jQuery -->
+    <script src="/static/js/jquery-3.3.1.min.js"></script>
+	<script src="/static/js/popper.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/jquery.counterup.min.js"></script>
+    <script src="/static/js/waypoints.min.js"></script>
+    <script src="/static/js/jquery.easing.min.js"></script>
+	<script src="/static/js/wow.js"></script>
+	<script src="/static/js/owl.carousel.min.js"></script>
+	<script src="/static/js/venobox.min.js"></script>
+	<script src="/static/js/SmoothScroll.js"></script>
+	<script src="/static/js/tilt.jquery.js"></script>
+	<script src="/static/js/bootstrap-timepicker.min.js"></script>
+	<script src="/static/js/bootstrap-datepicker.js"></script>
+	<script src="/static/js/chosen.jquery.js"></script>
+	<!-- <script src="/static/mail/js/form-validator.min.js"></script> -->
+	<!-- <script src="/static/mail/js/contact-form-script.js"></script> -->
+    <script src="/static/js/script.js"></script>
+	
+</body>
+</html>

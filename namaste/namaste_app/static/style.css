@@ -330,6 +330,8 @@ p {
     }
 }
 
+
+
 section{
 	width:100%;
 	float:left;
@@ -1994,6 +1996,12 @@ input[type="submit"].btn.btn-primary:hover{
 	color:#DF8710;
 	background:none;
 	border-color:#DF8710;
+}
+
+#raddress {
+	padding: 10px 15px; /* More padding inside the input field */
+    font-size: 16px; /* Larger font size for better readability */
+    height: auto; /* Adjust height as needed */
 }
 
 /*======================================== Responsive Design =============================*/

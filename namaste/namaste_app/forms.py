@@ -1,5 +1,5 @@
 from django import forms
-from namaste_app.models import RequestAppointment, MessageRequest
+from namaste_app.models import RequestAppointment, MessageRequest, Customer, CustomerEntry
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 
@@ -23,3 +23,18 @@ class CreateUserForm(UserCreationForm):
 class CustomAuthenticationForm(AuthenticationForm):
     # Add any additional fields or customization if needed
     pass
+
+class SignatureForm(forms.ModelForm):
+
+    class Meta:
+        model = Customer
+        fields = ['first_name', 'last_name', 'email', 'phone_number', 'address', 'has_condition', 'condition_names', 'accept_photo', 'accept_publishing', 'sign_date', 'signature']
+
+class ClientForm(forms.ModelForm):
+
+    class Meta:
+        model = CustomerEntry
+        fields = ['treatment', 'payment_type', 'payment_amount', 'comments']
+
+        payment_type = forms.ChoiceField(choices=[('ATHMovil', 'ATHMovil'), ('Cash', 'Cash'), ('Credit', 'Credit'), ('Debit', 'Debit')])
+    

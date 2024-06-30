@@ -1,0 +1,147 @@
+{% extends "admin_base.html" %}{% block title %}Buscar Cliente{% endblock %}
+{% load widget_tweaks %}
+{% block content %}
+
+<style>
+    /* Base styles for larger screens */
+#registro {
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px;
+box-sizing: border-box;
+}
+
+#registro .container {
+max-width: 960px;
+width: 100%;
+margin: 0 auto;
+padding: 20px;
+background-color: #fff;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
+}
+
+#registro .text-block {
+text-align: center;
+margin-bottom: 20px;
+}
+
+#registro .text-block h2 {
+margin-bottom: 15px;
+color: #333;
+}
+
+#registro .text-block p {
+margin-bottom: 10px;
+}
+
+.input-group {
+margin-bottom: 10px;
+}
+
+.input-group-btn {
+display: flex;
+align-items: center;
+}
+
+.modal-body {
+    margin-left: 200px;
+}
+
+/* Responsive styles for tablets */
+@media (max-width: 769px) {
+#registro .container {
+    padding: 20px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#registro .text-block h2 {
+    font-size: 1.5rem; /* Reduce the font size a bit */
+}
+.modal-body {
+    padding: 0 15px;  /* Adds padding to avoid touching the edges */
+}
+
+.form-group {
+    width: 100%; /* Ensures full width usage within the modal body */
+}
+
+.form-group input, .form-group div {
+    width: 100%; /* Makes input fields and radio button groups take full width */
+}
+
+.row {
+    display: block; /* Stacks the columns vertically */
+    margin: 0; /* Removes any default margin for rows */
+}
+
+[class*="col-"] {
+    float: none;
+    width: 100%; /* Forces all column classes to take full width */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Aligns the form contents centrally */
+}
+
+button {
+    width: 100%; /* Full width buttons for better mobile interaction */
+    margin-top: 10px; /* Adds space between buttons if stacked */
+}
+}
+</style>
+
+<div>
+    <section class="section-spacing" id="registro">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="text-block wow fadeIn">
+                        <h2>Buscar Cliente</h2>
+                    </div>
+                </div>
+                <form action="/buscar-cliente/" method="post">
+                    {% csrf_token %}
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="form-group">
+                                    <label>Email*</label>
+                                    <input type="email" id="remail" class="form-control" name="email" required data-error="Provee correo electronico">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="form-group">
+                                    <label>Teléfono*</label>
+                                    <input type="tel" id="rphone" class="form-control" name="phone_number" required data-error="Provee numero de teléfono">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+							<input value="Buscar Cliente" name="client_form" class="btn btn-primary" type="submit">
+							<div id="msgSubmit" class="hidden"></div>
+						</div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- End Find Client -->
+
+</div>
+
+{% endblock %}
+
+<script>
+    document.getElementById('paymentAmount').addEventListener('input', function (e) {
+        var value = parseFloat(e.target.value);
+        if (!isNaN(value)) {
+            e.target.value = value.toFixed(2);
+        }
+    });
+    </script>

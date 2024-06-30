@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from .views import CustomLoginView
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -23,4 +24,14 @@ urlpatterns = [
     path('lipolaser/', views.lipolaser, name='lipolaser'),
     path('vacumterapia/', views.vacumterapia, name='vacumterapia'),
     path('lebody/', views.lebody, name='lebody'),
+    path('relevo/', views.waiver, name='waiver'),
+    path('auth/login/', CustomLoginView.as_view(), name='login'),
+    path('register/', views.register, name='register'),
+    path('auth/logout/', views.logout, name='logout'),
+    path("dashboard/", views.dashboard, name="dashboard"),
+    path("mensajes/", views.mensajes, name="mensajes"),
+    path("registro/", views.registro, name="registro"),
+    path("informacion-de-cliente/", views.informacion_de_cliente, name="informacion_de_cliente"),
+    path("informacion-de-cliente/<int:user_id>/", views.informacion_de_cliente, name="informacion_de_cliente"),
+    path("buscar-cliente/", views.buscar_cliente, name="buscar_cliente")
 ]
