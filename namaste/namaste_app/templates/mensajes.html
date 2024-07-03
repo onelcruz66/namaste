@@ -2,7 +2,7 @@
 {% load widget_tweaks %}
 {% block content %}
 
-<section class="section-spacing inverse-bg">
+<!-- <section class="section-spacing inverse-bg">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -12,6 +12,148 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
+<style>
+    /* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+/* Styling for Heading */
+h1 {
+    color: black;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Button Styling */
+button {
+    background-color: #DF8710;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #DF8710;
+    color: #fff;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #DF8710;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+/* Delete button specific styling */
+.delete-btn {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #c9302c;
+}
+
+/* Icon styling inside buttons */
+ion-icon {
+    vertical-align: middle;
+}
+
+/* .metodo-pago, .comentarios {
+    display: none; 
+} */
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+<h1>Mensajes</h1>
+<button id="toggle-button" class="toggle-button">Show All Columns</button>
+<table id="data-table">
+    <thead>
+        <tr>
+            <th class="nombre">Nombre</th>
+            <th class="apellido">Apellido</th>
+            <th class="email">Email</th>
+            <th class="mensaje">Mensaje</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for msg in message %}
+        <tr>
+            <td class="nombre">{{ msg.first_name }}</td>
+            <td class="apellido">{{ msg.last_name }}</td>
+            <td class="email">{{ msg.email_address }}</td>
+            <td class="mensaje">{{ msg.question }}</td>
+            <td>
+                <form method="post" action="{% url 'borrar_mensajes' msg.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="delete-btn" name="delete-button">
+                        <ion-icon name="trash-outline" aria-hidden="true"></ion-icon>
+                    </button>
+                </form>
+                
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<script>
+    $(document).ready(function() {
+        // Toggle functionality for the button
+        $("#toggle-button").click(function() {
+            $(".nombre, .apellido, .email, .mensaje").toggle(); // Toggle visibility of specified columns
+            // Toggle button text
+            if ($(this).text() === "Show All Columns") {
+                $(this).text("Hide Some Columns");
+            } else {
+                $(this).text("Show All Columns");
+            }
+        });
+    
+        // Toggle individual columns by clicking the headers
+        $("th").click(function() {
+            var column = $("th").index(this) + 1; // Get column index +1 because nth-child is 1-based
+            $('td:nth-child(' + column + '),th:nth-child(' + column + ')').toggle(); // Toggle both header and cells
+        });
+    });
+</script>
 
 {% endblock %}

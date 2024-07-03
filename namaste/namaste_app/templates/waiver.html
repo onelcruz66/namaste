@@ -211,7 +211,6 @@
                     </div>
                     <form method="post">
                         {% csrf_token %}
-                        <!-- {{ form.as_p }} -->
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6">
@@ -449,6 +448,67 @@
             }
         });
     });
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$("#remail").blur(function() {
+    var email = $(this).val();
+    $.ajax({
+        url: '/check-email/',
+        method: 'GET',
+        data: {email: email},
+        success: function(response) {
+            if(response.exists){
+                alert("Email already registered!");
+                $("#remail").val('');  // Clear the input
+            }
+        }
+    });
+});
+
+$("#rphone").change(function() {
+    var phone = $(this).val();
+    if (phone.length > 0) {  // Check if input is not empty
+        $.ajax({
+            url: '/check-phone/',
+            method: 'GET',
+            data: {phone_number: phone},
+            success: function(response) {
+                if(response.exists){
+                    alert("Phone number already in use!");
+                    $("#rphone").val('');  // Clear the input
+                }
+            }
+        });
+    }
+});
+</script>
+<script>
+    function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+var csrftoken = getCookie('csrftoken');
+
+$.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+    }
+});
 </script>
 
 </body>

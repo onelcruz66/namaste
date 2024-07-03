@@ -10,6 +10,7 @@ from django import forms
 import json
 from django.contrib import messages
 from django.urls import reverse
+from django.http import JsonResponse
 
 # Create your views here.
 def home(request):
@@ -395,7 +396,7 @@ def lebody(request):
 
     return render(request, 'lebody.html', context)
 
-def waiver(request):
+def relevo(request):
 
     context = {}
 
@@ -428,13 +429,13 @@ def waiver(request):
                 new_doc.signature.save(f"{new_doc.first_name}_signature.{ext}", data, save=False)
 
             new_doc.save()
-            return redirect(request.path)  # Redirect after POST
+            return redirect('buscar_cliente')  # Redirect after POST
     else:
         form = SignatureForm()
 
     context['form'] = form
 
-    return render(request, 'waiver.html', context)
+    return render(request, 'relevo.html', context)
 
 # Admin page views.
 @login_required
@@ -475,6 +476,8 @@ class CustomLoginView(auth_views.LoginView):
 @login_required
 def mensajes(request):
     context = {}
+    message = MessageRequest.objects.order_by('id')
+    context['message'] = message
 
     return render(request, "mensajes.html", context)
 
@@ -482,7 +485,7 @@ def mensajes(request):
 def registro(request):
     context = {}
     try:
-        customer_entries = CustomerEntry.objects.all()
+        customer_entries = CustomerEntry.objects.order_by('-date_seen')
         context['customer_entries'] = customer_entries
     except Exception as e:
         return f"Error fetching records: {str(e)}"
@@ -525,20 +528,59 @@ def buscar_cliente(request):
         email = request.POST.get('email')
         phone_number = request.POST.get('phone_number')
 
-        if email:
+        if email and phone_number:
             user = Customer.objects.filter(email=email).first()
-        elif phone_number:
-            user = Customer.objects.filter(phone_number=phone_number).first()
+            if user:
+                return redirect(reverse('informacion_de_cliente', args=[user.id]))
+            else:
+                user = Customer.objects.filter(phone_number=phone_number).first()
+                if user:
+                    return redirect(reverse('informacion_de_cliente', args=[user.id]))
+                else:
+                    messages.error(request, 'No user found with the given information.')
+                    return redirect('buscar_cliente')
         else:
             return HttpResponse('Please provide an email or phone number to search.')
-        
-        if user:
-            return redirect(reverse('informacion_de_cliente', args=[user.id]))
-        else:
-            messages.error(request, 'No user found with the given information.')
-            return redirect('buscar_cliente')
     else:
+        try:
+            # customer_entries = CustomerEntry.objects.all()
+            customer = Customer.objects.order_by('id')
+            context['customer'] = customer
+        except Exception as e:
+            return f"Error fetching records: {str(e)}"
+
         # GET request returns the empty search form
         return render(request, "buscar_cliente.html", context)
 
-    
+
+@login_required
+def borrar_entrada(request, user_id):
+    entry = CustomerEntry.objects.get(pk=user_id)
+    entry.delete()
+    return redirect('registro')
+
+@login_required
+def borrar_cliente(request, user_id):
+    customer_user = Customer.objects.get(pk=user_id)
+    customer_user.delete()
+    return redirect('buscar_cliente')
+
+@login_required
+def borrar_mensajes(request, user_id):
+    mensaje = MessageRequest.objects.get(pk=user_id)
+    mensaje.delete()
+    return redirect('mensajes')
+
+def check_email(request):
+    email = request.GET.get('email', None)
+    data = {
+        'exists': Customer.objects.filter(email__iexact=email).exists()
+    }
+    return JsonResponse(data)
+
+def check_phone(request):
+    phone_number = request.GET.get('phone_number', None)
+    data = {
+        'exists': Customer.objects.filter(phone_number=phone_number).exists()
+    }
+    return JsonResponse(data)

@@ -1,0 +1,91 @@
+{% extends "admin_base.html" %}{% block title %}Añadir Empleados{% endblock %}
+{% load widget_tweaks %}
+{% block content %}
+
+<style>
+        
+    #login {
+        color: white;
+        text-align: center;
+        margin-left: -280px;
+    }
+
+    form {
+        text-align: center;
+        color: white;
+        max-width: 400px;
+        margin-left: -70px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 12px;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #DF8710;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #DF8710;
+    }
+</style>
+<section class="carousel slide" id="banner" data-ride="carousel" data-pause="false">
+    <div class="carousel-inner">
+        <div class="carousel-item active" style="background-image:url(/static/img/namaste/buddha_hero_banner.jpg)">
+            <div class="banner-caption">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <style>
+                                .margin-adjust {
+                                    margin-left: 650px; /* Adjusts left margin to push content to the right */
+                                }
+
+                                @media (max-width: 767px) {
+                                    .margin-adjust {
+                                        margin-left: 170px;
+                                    }
+                                }
+                            </style>
+                            <div class="hero-text margin-adjust">
+                                <!-- Desktop image -->
+                                <!-- <img src="/static/img/namaste/namaste_hand_logo_black.jpg" alt="namaste_logo" class="desktop-image animated fadeInDown"> -->
+
+                                <!-- Mobile image -->
+                                <!-- <img src="/static/img/namaste/namaste_hand_logo_black_136x136.jpg" alt="namaste_logo_mobile" class="mobile-image animated fadeInDown"> -->
+
+                                <h2 id="login">Añadir Empleado</h2>
+                                <form method="POST" action="{% url 'register' %}">
+                                    {% csrf_token %}
+                                    {{ form }}
+                                    <button type="submit">Registrar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

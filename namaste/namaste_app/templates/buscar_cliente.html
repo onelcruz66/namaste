@@ -133,7 +133,136 @@ button {
     </section>
     <!-- End Find Client -->
 
+    <style>
+        /* General Body Styling */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 20px;
+        color: #333;
+    }
+    
+    /* Styling for Heading */
+    h1 {
+        color: black;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    /* Button Styling */
+    button {
+        background-color: #DF8710;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    
+    button:hover {
+        background-color: #DF8710;
+        color: #fff;
+    }
+    
+    /* Table Styling */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+    
+    table, th, td {
+        border: 1px solid #ddd;
+    }
+    
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+    
+    th {
+        background-color: #DF8710;
+        color: white;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    
+    tr:hover {
+        background-color: #ddd;
+    }
+    
+    /* Delete button specific styling */
+    .delete-btn {
+        background-color: #d9534f;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .delete-btn:hover {
+        background-color: #c9302c;
+    }
+    
+    /* Icon styling inside buttons */
+    ion-icon {
+        vertical-align: middle;
+    }
+    
+    </style>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <h1>Lista De Clientes</h1>
+    <input type="text" id="search-input" placeholder="Buscar cliente..." style="margin-bottom: 10px; width: 300px; padding: 8px;">
+    <table id="data-table">
+    <thead>
+        <tr>
+            <th># Cliente</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Telefono</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for customer_user in customer %}
+        <tr>
+            <td>{{ customer_user.id }}</td>
+            <td>{{ customer_user.first_name }}</td>
+            <td>{{ customer_user.last_name }}</td>
+            <td>{{ customer_user.phone_number }}</td>
+            <td>{{ customer_user.email }}</td>
+            <td>
+                <form method="post" action="{% url 'borrar_cliente' customer_user.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="delete-btn" name="delete-button">
+                        <ion-icon name="trash-outline" aria-hidden="true"></ion-icon>
+                    </button>
+                </form>
+                
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
 </div>
+<script>
+    $(document).ready(function(){
+        $("#search-input").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#data-table tbody tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
 
 {% endblock %}
 
@@ -144,4 +273,5 @@ button {
             e.target.value = value.toFixed(2);
         }
     });
-    </script>
+</script>
+
