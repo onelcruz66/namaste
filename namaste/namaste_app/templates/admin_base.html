@@ -36,7 +36,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,400i,500,600,700,800,900" rel="stylesheet">
 	<!-- Main CSS -->
 	<link href="/static/style.css" rel="stylesheet">
-	
+
 </head>
 
 <body>
@@ -64,13 +64,13 @@
 						<a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>					
 					</li>
 					<li class="nav-item">
+						<a class="nav-link" href="{% url 'buscar_cliente' %}">Buscar Cliente</a>					
+					</li>
+					<li class="nav-item">
 						<a class="nav-link" href="{% url 'registro' %}">Registro De Clientes</a>					
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="{% url 'mensajes' %}">Mensajes</a>					
-					</li>
-                    <li class="nav-item">
-						<a class="nav-link" href="{% url 'relevo' %}">Relevo De Responsabilidad</a>					
 					</li>
                     <li class="nav-item btn-appointment">
 						<a class="nav-link" href="{% url 'logout' %}">Log Out</a>					
@@ -99,10 +99,10 @@
 							<h3>QUICK LINKS</h3>
 							<ul>
                                 
-                                <li><a href="#">Politica de Privacidad</a></li>
-								<li><a href="{% url 'sobre-nosotros' %}">Sobre Nosotros</a></li>
-								<li><a href="{% url 'servicios' %}">Servicios</a></li>
-								<li><a href="{% url 'contacto' %}">Contactanos</a></li>
+                                <li><a href="{% url 'mensajes' %}">Mensajes</a></li>
+								<li><a href="{% url 'registro' %}">Registro De Clientes</a></li>
+								<li><a href="{% url 'relevo' %}">Relevo De Responsabilidad</a></li>
+								<li><a href="{% url 'buscar_cliente' %}">Buscar Clientes</a></li>
 							</ul>
 						</div>
 					</div>

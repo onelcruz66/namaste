@@ -396,6 +396,7 @@ def lebody(request):
 
     return render(request, 'lebody.html', context)
 
+@login_required
 def relevo(request):
 
     context = {}
@@ -584,3 +585,4 @@ def check_phone(request):
         'exists': Customer.objects.filter(phone_number=phone_number).exists()
     }
     return JsonResponse(data)
+

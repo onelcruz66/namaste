@@ -245,7 +245,6 @@ button {
                         <ion-icon name="trash-outline" aria-hidden="true"></ion-icon>
                     </button>
                 </form>
-                
             </td>
         </tr>
         {% endfor %}
@@ -263,6 +262,17 @@ button {
         });
     });
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var rows = document.querySelectorAll('#data-table tbody tr');
+        rows.forEach(function(row) {
+            row.addEventListener('click', function() {
+                var customerId = this.cells[0].textContent; // Get the first cell content
+                window.location.href = '/informacion-de-cliente/' + customerId; // Change the URL to your desired path
+            });
+        });
+    });
+</script>
 
 {% endblock %}
 
@@ -275,3 +285,5 @@ button {
     });
 </script>
 
+
+    

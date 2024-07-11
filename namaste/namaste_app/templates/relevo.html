@@ -132,7 +132,7 @@ button {
                         
                     </div>
                 </div>
-                <form method="post">
+                <form method="post" action="{% url 'relevo' %}">
                     {% csrf_token %}
                     <div class="modal-body">
                         <div class="row">

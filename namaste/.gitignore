@@ -4,3 +4,5 @@ namaste/__pycache__/*
 static/*
 db.*
 .gitignore
+db.sqlite3
+media/signatures/*
