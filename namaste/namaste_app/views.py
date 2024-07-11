@@ -525,33 +525,15 @@ def informacion_de_cliente(request, user_id):
 def buscar_cliente(request):
     context = {}
 
-    if request.method == 'POST':
-        email = request.POST.get('email')
-        phone_number = request.POST.get('phone_number')
+    try:
+        # customer_entries = CustomerEntry.objects.all()
+        customer = Customer.objects.order_by('id')
+        context['customer'] = customer
+    except Exception as e:
+        return f"Error fetching records: {str(e)}"
 
-        if email and phone_number:
-            user = Customer.objects.filter(email=email).first()
-            if user:
-                return redirect(reverse('informacion_de_cliente', args=[user.id]))
-            else:
-                user = Customer.objects.filter(phone_number=phone_number).first()
-                if user:
-                    return redirect(reverse('informacion_de_cliente', args=[user.id]))
-                else:
-                    messages.error(request, 'No user found with the given information.')
-                    return redirect('buscar_cliente')
-        else:
-            return HttpResponse('Please provide an email or phone number to search.')
-    else:
-        try:
-            # customer_entries = CustomerEntry.objects.all()
-            customer = Customer.objects.order_by('id')
-            context['customer'] = customer
-        except Exception as e:
-            return f"Error fetching records: {str(e)}"
-
-        # GET request returns the empty search form
-        return render(request, "buscar_cliente.html", context)
+    # GET request returns the empty search form
+    return render(request, "buscar_cliente.html", context)
 
 
 @login_required
