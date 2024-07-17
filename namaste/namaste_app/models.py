@@ -97,7 +97,6 @@ class TreatmentType(models.TextChoices):
 class CustomerEntry(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='entries')
     date_seen = models.DateTimeField(auto_now_add=True, verbose_name="Date Seen")
-    # treatment = models.CharField(max_length=100, blank=True, default='')
     treatment = models.CharField(max_length=50, choices=TreatmentType.choices, default='')
     payment_type = models.CharField(max_length=50, choices=PaymentType.choices, default='')
     payment_amount = models.DecimalField(max_digits=10, decimal_places=2, help_text="Price in dollars")
