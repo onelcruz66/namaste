@@ -57,4 +57,23 @@ class ClientForm(forms.ModelForm):
         fields = ['treatment', 'payment_type', 'payment_amount', 'comments']
 
         payment_type = forms.ChoiceField(choices=[('ATHMovil', 'ATHMovil'), ('Cash', 'Cash'), ('Credit', 'Credit'), ('Debit', 'Debit')])
-    
+
+        treatment = forms.ChoiceField(choices=[('Masaje Sueco', 'Masaje Sueco'), \
+                                               ('Post Operatorio', 'Post Operatorio'), \
+                                               ('Masaje Prenatal', 'Masaje Prenatal'), \
+                                               ('Masaje Profundo', 'Masaje Profundo'), \
+                                               ('Gold Detox', 'Gold Detox'), \
+                                               ('Vacuslim-48', 'Vacuslim-48'), \
+                                               ('Depilacion', 'Depilacion'), \
+                                               ('Maderoterapia', 'Maderoterapia'), \
+                                               ('Metaloterapia', 'Metaloterapia'), \
+                                               ('Drenaje Linfatico', 'Drenaje Linfatico'), \
+                                               ('Quiromasaje', 'Quiromasaje'), \
+                                               ('Copas Chinas', 'Copas Chinas'), \
+                                               ('Pistola de Masaje', 'Pistola de Masaje'), \
+                                               ('Maderoterapia Facial', 'Maderoterapia Facial'), \
+                                               ('Lipolaser', 'Lipolaser'), \
+                                               ('Vacumterapia', 'Vacumterapia'), \
+                                               ('LeBody', 'LeBody'), \
+                                               ('Otro', 'Otro'), \
+                                               ])

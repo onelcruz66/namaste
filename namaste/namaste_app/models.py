@@ -74,10 +74,31 @@ class PaymentType(models.TextChoices):
     CREDIT = 'Credit', _('Credit')
     DEBIT = 'Debit', _('Debit')
 
+class TreatmentType(models.TextChoices):
+    MASAJESUECO = 'Masaje Sueco', _('Masaje Sueco')
+    POSTOPERATORIO = 'Post Operatorio', _('Post Operatorio')
+    MASAJEPRENATAL = 'Masaje Prenatal', _('Masaje Prenatal')
+    MASAJEPROFUNDO = 'Masaje Profundo', _('Masaje Profundo')
+    GOLDDETOX = 'Gold Detox', _('Gold Detox')
+    VACUSLIM = 'Vacuslim-48', _('Vacuslim-48')
+    DEPILACION = 'Depilacion', _('Depilacion')
+    MADEROTERAPIA = 'Maderoterapia', _('Maderoterapia')
+    METALOTERAPIA = 'Metaloterapia', _('Metaloterapia')
+    DRENAJELINFATICO = 'Drenaje Linfatico', _('Drenaje Linfatico')
+    QUIROMASAJE = 'Quiromasaje', _('Quiromasaje')
+    COPASCHINAS = 'Copas Chinas', _('Copas Chinas')
+    PISTOLAMASAJE = 'Pistola de Masaje', _('Pistola de Masaje')
+    MADEROTERAPIAFACIAL = 'Maderoterapia Facial', _('Maderoterapia Facial')
+    LIPOLASER = 'Lipolaser', _('Lipolaser')
+    VACUMTERAPIA = 'Vacumterapia', _('Vacumterapia')
+    LEBODY = 'LeBody', _('LeBody')
+    OTRO = 'Otro', _('Otro')
+
 class CustomerEntry(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='entries')
     date_seen = models.DateTimeField(auto_now_add=True, verbose_name="Date Seen")
-    treatment = models.CharField(max_length=100, blank=True, default='')
+    # treatment = models.CharField(max_length=100, blank=True, default='')
+    treatment = models.CharField(max_length=50, choices=TreatmentType.choices, default='')
     payment_type = models.CharField(max_length=50, choices=PaymentType.choices, default='')
     payment_amount = models.DecimalField(max_digits=10, decimal_places=2, help_text="Price in dollars")
     comments = models.CharField(max_length=300, blank=True, default='')
@@ -85,4 +106,3 @@ class CustomerEntry(models.Model):
     # Converts dollar amounts to cents if needed for calculations or integration with systems that require cents.
     def get_price_in_cents(self):
         return int(self.price * 100)
-    
