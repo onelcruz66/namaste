@@ -666,6 +666,23 @@ section{
 	position:relative;
 	z-index:3;
 }
+
+.package{
+	width:100%;
+	float:left;
+	height:auto;
+	padding:30px 15px 30px;
+	position:relative;
+	background:#fff;
+	-webkit-transition:all 0.2s ease-in-out;
+	-ms-transition:all 0.2s ease-in-out;
+	-moz-transition:all 0.2s ease-in-out;
+	transition:all 0.2s ease-in-out;
+}
+.package h3{
+	position:relative;
+	z-index:3;
+}
 .service-item h3 a{
 	color:inherit;
 }

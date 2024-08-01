@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% block content %}
+
+
+
+<section class="section-spacing">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title text-center">
+                    <h2><span>Horas Disponibles</span></h2>
+                </div>
+            </div>
+        </div>
+        <form method="POST" action="{% url 'hora' last_appointment.id %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>Horas Disponibles</label>
+                <select id="rselect-service" class="select-option" name="hour_selected">
+                    <option value="9:00">9:00 AM</option>
+                    <option value="10:00">10:00 AM</option>
+                    <option value="11:00">11:00 AM</option>
+                    <option value="12:00">12:00 AM</option>
+                    <option value="1:00">1:00 PM</option>
+                    <option value="2:00">2:00 PM</option>
+                    <option value="3:00">3:00 PM</option>
+                    <option value="4:00">4:00 PM</option>
+                    <option value="5:00">5:00 PM</option>
+                </select>
+            </div>
+            <div class="submit-block text-right">
+                <input value="Submit" name="submit" class="btn btn-primary" type="submit">
+            </div>
+        </form>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+<!-- <div class="row">
+                <div class="col-md-6">
+                    {% if time_slots.nine.value != 0 %}
+                    <input value="{{ time_slots.nine.label }}" name="time_slot" class="btn btn-primary" type="submit">
+                    {% endif %}
+                </div>
+                <div class="col-md-6">
+                    {% if time_slots.ten.value != 0 %}
+                    <input value="{{ time_slots.ten.label }}" name="time_slot" class="btn btn-primary" type="submit">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    {% if time_slots.eleven.value != 0 %}
+                    <input value="{{ time_slots.eleven.label }}" name="time_slot" class="btn btn-primary" type="submit">
+                    {% endif %}
+                </div>
+                <div class="col-md-6">
+                    {% if time_slots.twelve.value != 0 %}
+                    <input value="{{ time_slots.twelve.label }}" name="time_slot" class="btn btn-primary" type="submit">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    {% if time_slots.one.value != 0 %}
+                    <input value="{{ time_slots.one.label }}" name="time_slot" class="btn btn-primary" type="submit">
+                    {% endif %}
+                </div>
+                <div class="col-md-6">
+                    {% if time_slots.two.value != 0 %}
+                    <input value="{{ time_slots.two.label }}" name="time_slot" class="btn btn-primary" type="submit">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    {% if time_slots.three.value != 0 %}
+                    <input value="{{ time_slots.three.label }}" name="time_slot" class="btn btn-primary" type="submit">
+                    {% endif %}
+                </div>
+                <div class="col-md-6">
+                    {% if time_slots.four.value != 0 %}
+                    <input value="{{ time_slots.four.label }}" name="time_slot" class="btn btn-primary" type="submit">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    {% if time_slots.five.value != 0 %}
+                    <input value="{{ time_slots.five.label }}" name="time_slot" class="btn btn-primary" type="submit">
+                    {% endif %}
+                </div>
+            </div> -->

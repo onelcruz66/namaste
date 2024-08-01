@@ -4,12 +4,29 @@ from django.utils import timezone
 import json
 import uuid
 
+
 # Create your models here.
 class ServiceType(models.TextChoices):
-    MASAJES = 'Masajes', _('Masajes')
-    DRENAJES = 'Drenajes', _('Drenajes')
-    TRATAMIENTOS = 'Tratamientos', _('Tratamientos')
+    GOLDDETOXPACKAGE = 'Gold Detox (6 Secciones)', _('Gold Detox (6 Secciones)')
+    METALOTERAPIAPACKAGE = 'Metaloterapia (6 Secciones)', _('Metaloterapia (6 Secciones)')
+    MADEROTERAPIAPACKAGE = 'Maderoterapia (6 Secciones)', _('Maderoterapia (6 Secciones)')
+    MASAJESUECO = 'Masaje Sueco', _('Masaje Sueco')
+    POSTOPERATORIO = 'Post-Operatorio', _('Post-Operatorio')
+    MASAJEPRENATAL = 'Masaje Prenatal', _('Masaje Prenatal')
+    MASAJEPROFUNDO = 'Masaje Profundo', _('Masaje Profundo')
+    GOLDDETOX = 'Gold Detox', _('Gold Detox')
+    VACUSLIM = 'Vacuslim-48', _('Vacuslim-48')
     DEPILACION = 'Depilación', _('Depilación')
+    MADEROTERAPIA = 'Maderoterapia', _('Maderoterapia')
+    METALOTERAPIA = 'Metaloterapia', _('Metaloterapia')
+    DRENAJELINFATICO = 'Drenaje Linfático', _('Drenaje Linfático')
+    QUIROMASAJE = 'Quiromasaje', _('Quiromasaje')
+    COPASCHINAS = 'Copas Chinas', _('Copas Chinas')
+    PISTOLAMASAJE = 'Pistola De Masaje', _('Pistola De Masaje')
+    MADEROTERAPIAFACIAL = 'Maderoterapia Facial', _('Maderoterapia Facial')
+    LIPOLASER = 'Lipoláser', _('Lipoláser')
+    VACUMTERAPIA = 'Vacumterapia', _('Vacumterapia')
+    LEBODY = 'LeBody', _('LeBody')
 
 class RequestAppointment(models.Model):
     first_name = models.CharField(max_length=50, null=False, blank=False)
@@ -21,8 +38,50 @@ class RequestAppointment(models.Model):
     city = models.CharField(max_length=50, blank=True, default='')
     service = models.CharField(max_length=50, choices=ServiceType.choices, default='')
     date = models.CharField(max_length=50, blank=False, default='')
-    time = models.CharField(max_length=50, blank=False, default='')
 
+
+class HourSelected(models.TextChoices):
+    NINE = '9:00', _('9:00')
+    TEN = '10:00', _('10:00')
+    ELEVEN = '11:00', _('11:00')
+    TWELVE = '12:00', _('12:00')
+    ONE = '1:00', _('1:00')
+    TWO = '2:00', _('2:00')
+    THREE = '3:00', _('3:00')
+    FOUR = '4:00', _('4:00')
+    FIVE = '5:00', _('5:00')
+
+class TimeSlots(models.Model):
+    date = models.CharField(max_length=50, blank=False, default='')
+    MY_CHOICES = (
+        (0, '0'),
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+    )
+    hour_selected = models.CharField(max_length=50, choices=HourSelected.choices, default='')
+    nine = models.IntegerField(choices=MY_CHOICES, default=3)
+    ten = models.IntegerField(choices=MY_CHOICES, default=3)
+    eleven = models.IntegerField(choices=MY_CHOICES, default=3)
+    twelve = models.IntegerField(choices=MY_CHOICES, default=3)
+    one = models.IntegerField(choices=MY_CHOICES, default=3)
+    two = models.IntegerField(choices=MY_CHOICES, default=3)
+    three = models.IntegerField(choices=MY_CHOICES, default=3)
+    four = models.IntegerField(choices=MY_CHOICES, default=3)
+    five = models.IntegerField(choices=MY_CHOICES, default=3)
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.nine = 3
+            self.ten = 3
+            self.eleven = 3
+            self.twelve = 3
+            self.one = 3
+            self.two = 3
+            self.three = 3
+            self.four = 3
+            self.five = 3
+        super(TimeSlots, self).save(*args, **kwargs)
 
 class MessageRequest(models.Model):
     first_name = models.CharField(max_length=80, null=False, blank=False)

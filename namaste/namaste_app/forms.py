@@ -1,5 +1,5 @@
 from django import forms
-from namaste_app.models import RequestAppointment, MessageRequest, Customer, CustomerEntry
+from namaste_app.models import RequestAppointment, MessageRequest, Customer, CustomerEntry, TimeSlots
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
@@ -7,9 +7,36 @@ from django.core.exceptions import ValidationError
 class RequestForm(forms.ModelForm): 
     class Meta:
         model = RequestAppointment
-        fields = ['first_name', 'last_name', 'email_address', 'phone_number', 'address', 'zip', 'city', 'service', 'date', 'time']
+        fields = ['first_name', 'last_name', 'email_address', 'phone_number', 'address', 'zip', 'city', 'service', 'date']
 
-        service = forms.ChoiceField(choices=[('Masajes', 'Masajes'), ('Drenajes', 'Drenajes'), ('Tratamientos', 'Tratamientos'), ('Depilación', 'Depilación')])
+        service = forms.ChoiceField(choices=[('Gold Detox (6 Secciones)', 'Gold Detox (6 Secciones)'), \
+                                             ('Metaloterapia (6 Secciones)', 'Metaloterapia (6 Secciones)'), \
+                                             ('Maderoterapia (6 Secciones)', 'Maderoterapia (6 Secciones)'), \
+                                             ('Masaje Sueco', 'Masaje Sueco'), \
+                                             ('Post-Operatorio', 'Post-Operatorio'), \
+                                             ('Masaje Prenatal', 'Masaje Prenatal'), \
+                                             ('Masaje Profundo', 'Masaje Profundo'), \
+                                             ('Gold Detox', 'Gold Detox'), \
+                                             ('Vacuslim-48', 'Vacuslim-48'), \
+                                             ('Depilación', 'Depilación'), \
+                                             ('Maderoterapia', 'Maderoterapia'), \
+                                             ('Metaloterapia', 'Metaloterapia'), \
+                                             ('Depilación', 'Depilación'), \
+                                             ('Drenaje Linfático', 'Drenaje Linfático'), \
+                                             ('Quiromasaje', 'Quiromasaje'), \
+                                             ('Copas Chinas', 'Copas Chinas'), \
+                                             ('Pistola De Masaje', 'Pistola De Masaje'), \
+                                             ('Maderoterapia Facial', 'Maderoterapia Facial'), \
+                                             ('Lipoláser', 'Lipoláser'), \
+                                             ('Vacumterapia', 'Vacumterapia'), \
+                                             ('LeBody', 'LeBody')
+                                             ])
+
+class TimeForm(forms.ModelForm):
+
+    class Meta:
+        model = TimeSlots
+        fields = ['hour_selected']
 
 class MessageForm(forms.ModelForm):
     class Meta:

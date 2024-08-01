@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import RequestAppointment, MessageRequest, ApprovedAppointments, Customer, CustomerEntry
-from namaste_app.forms import RequestForm, MessageForm, CreateUserForm, CustomAuthenticationForm, SignatureForm
+from .models import RequestAppointment, MessageRequest, ApprovedAppointments, Customer, CustomerEntry, TimeSlots
+from namaste_app.forms import RequestForm, MessageForm, CreateUserForm, CustomAuthenticationForm, SignatureForm, TimeForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import views as auth_views
 import base64
@@ -11,6 +11,19 @@ import json
 from django.contrib import messages
 from django.urls import reverse
 from django.http import JsonResponse
+
+
+label_to_field = {
+    '9:00': 'nine',
+    '10:00': 'ten',
+    '11:00': 'eleven',
+    '12:00': 'twelve',
+    '1:00': 'one',
+    '2:00': 'two',
+    '3:00': 'three',
+    '4:00': 'four',
+    '5:00': 'five'
+}
 
 # Create your views here.
 def home(request):
@@ -568,3 +581,125 @@ def check_phone(request):
     }
     return JsonResponse(data)
 
+def booking(request):
+    context = {}
+
+    # Handle form submissions
+    if request.method == "POST":
+        form = RequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+            # After database entry is saved, pass in the db object id to the hora view.
+            getRequestedAppointment = RequestAppointment.objects.last()
+            return redirect('hora', appointment_id=getRequestedAppointment.id) 
+        else:
+            print(form.errors)
+    else:
+        # Render the form for GET requests
+        form = RequestForm()
+
+    context['form'] = form
+
+    return render(request, "booking.html", context)
+
+
+def hora(request, appointment_id):
+    context = {}
+    lastAppointment = RequestAppointment.objects.get(pk=appointment_id)
+    context['last_appointment'] = lastAppointment
+
+    try:
+
+        timeSlot = TimeSlots.objects.get(date=lastAppointment.date)
+        context['time_slots'] = timeSlot
+
+        if request.method == 'POST':
+            response = handlePostRequestForExistingTimeSlot(request, timeSlot)
+            if response:
+                return response
+
+    except TimeSlots.DoesNotExist:
+
+        form = TimeForm()
+        context['time_slots'] = form
+
+        if request.method == 'POST':
+            response = handlePostRequestForNewTimeSlot(request, lastAppointment)
+            if response:
+                return response
+
+    return render(request, "time.html", context)
+
+def handlePostRequestForNewTimeSlot(request, lastAppointment):
+    new_time_slot_record = TimeSlots(
+        date = lastAppointment.date,
+        hour_selected = request.POST.get('hour_selected')
+    )
+    new_time_slot_record.save()
+    time_slot = new_time_slot_record.hour_selected
+    subtractTimeSlotFromDb(new_time_slot_record, time_slot)
+    form = TimeForm(request.POST)
+    if form.is_valid():
+        return redirect('home')
+    else:
+        print(form.errors)
+        print("time_slot:", time_slot)
+    return None
+
+def handlePostRequestForExistingTimeSlot(request, timeSlotObject):
+
+    form = TimeForm(request.POST)
+    if form.is_valid():
+        time_slot = request.POST.get('hour_selected')
+        subtractTimeSlotFromDb(timeSlotObject, time_slot)
+        
+        return redirect('home')
+    else:
+        print(form.errors)
+        print("time_slot:", time_slot)
+    return None
+
+def subtractTimeSlotFromDb(dbObject, time_slot):
+    if time_slot == '9:00' and dbObject.nine != 0:
+        dbObject.nine = dbObject.nine - 1
+        dbObject.save()
+        return
+    elif time_slot == '10:00' and dbObject.ten != 0:
+        dbObject.ten = dbObject.ten - 1
+        dbObject.save()
+        return
+    elif time_slot == '11:00' and dbObject.eleven != 0:
+        dbObject.eleven = dbObject.eleven - 1
+        dbObject.save()
+        return
+    elif time_slot == '12:00' and dbObject.twelve != 0:
+        dbObject.twelve = dbObject.twelve - 1
+        dbObject.save()
+        return
+    elif time_slot == '1:00' and dbObject.one != 0:
+        dbObject.one = dbObject.one - 1
+        dbObject.save()
+        return
+    elif time_slot == '2:00' and dbObject.two != 0:
+        dbObject.two = dbObject.two - 1
+        dbObject.save()
+        return
+    elif time_slot == '3:00' and dbObject.three != 0:
+        dbObject.three = dbObject.three - 1
+        dbObject.save()
+        return
+    elif time_slot == '4:00' and dbObject.four != 0:
+        dbObject.four = dbObject.four - 1
+        dbObject.save()
+        return
+    elif time_slot == '5:00' and dbObject.five != 0:
+        dbObject.five = dbObject.five - 1
+        dbObject.save()
+        return
+    else:
+        return
+
+
+
+    

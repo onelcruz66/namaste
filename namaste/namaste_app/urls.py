@@ -39,4 +39,7 @@ urlpatterns = [
     path("borrar-mensaje/<int:user_id>/", views.borrar_mensajes, name="borrar_mensajes"),
     path("check-phone/", views.check_phone, name="check-phone"),
     path("check-email/", views.check_email, name="check-email"),
+    path("booking/", views.booking, name="booking"),
+    path("hora/", views.hora, name="hora"),
+    path("hora/<int:appointment_id>/", views.hora, name="hora"),
 ]

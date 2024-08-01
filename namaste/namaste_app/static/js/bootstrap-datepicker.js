@@ -1393,7 +1393,7 @@
 		beforeShowDay: $.noop,
 		calendarWeeks: false,
 		clearBtn: false,
-		daysOfWeekDisabled: [],
+		daysOfWeekDisabled: [0],
 		endDate: Infinity,
 		forceParse: true,
 		format: 'mm/dd/yyyy',
