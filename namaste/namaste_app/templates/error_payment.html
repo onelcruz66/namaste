@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Error</title>
+    <link href="/static/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Payment Error</h1>
+        <p>There was an error processing your payment: {{ message }}</p>
+        <p>Please try again or contact our support team for help.</p>
+        <a href="{% url 'payment' %}" class="btn btn-primary">Try Again</a>
+        <a href="{% url 'home' %}" class="btn btn-secondary">Return to Home</a>
+    </div>
+</body>
+</html>

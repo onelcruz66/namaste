@@ -164,3 +164,10 @@ class CustomerEntry(models.Model):
     # Converts dollar amounts to cents if needed for calculations or integration with systems that require cents.
     def get_price_in_cents(self):
         return int(self.price * 100)
+
+class Product(models.Model):
+    name = models.CharField(max_length=100)
+    price = models.IntegerField(default=0) #cents
+
+    def __str__(self):
+        return self.name

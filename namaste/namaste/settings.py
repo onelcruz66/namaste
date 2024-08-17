@@ -13,6 +13,10 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 
+STRIPE_PUBLIC_KEY = 'pk_test_51Pj5qpP1i7r9kCtP5xFGaZhdzvzTOJ6vsUtMuUr0CUQpGRs1AAwT50tpcrC6GRGPukr4kVP4QiHW0o0MsvWPjTOF00y0Dzj7pM'
+STRIPE_SECRET_KEY = 'sk_test_51Pj5qpP1i7r9kCtPUCKIZPQ4UBz3erppQrfH84cIEtNx0cP3gyHWFMwjWDjh6GYk1jGkRp3gbEEtdwu8tfwVh7lG008P0Z9oYD'
+STRIPE_WEBHOOK_SECRET = ''
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

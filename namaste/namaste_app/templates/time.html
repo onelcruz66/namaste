@@ -18,15 +18,33 @@
             <div class="form-group">
                 <label>Horas Disponibles</label>
                 <select id="rselect-service" class="select-option" name="hour_selected">
+                    {% if time_slots.nine > 0 or nine > 0 %}
                     <option value="9:00">9:00 AM</option>
+                    {% endif %}
+                    {% if time_slots.ten > 0 or ten > 0 %}
                     <option value="10:00">10:00 AM</option>
+                    {% endif %}
+                    {% if time_slots.eleven > 0 or eleven > 0 %}
                     <option value="11:00">11:00 AM</option>
+                    {% endif %}
+                    {% if time_slots.twelve > 0 or twelve > 0 %}
                     <option value="12:00">12:00 AM</option>
+                    {% endif %}
+                    {% if time_slots.one > 0 or one > 0 %}
                     <option value="1:00">1:00 PM</option>
+                    {% endif %}
+                    {% if time_slots.two > 0 or two > 0 %}
                     <option value="2:00">2:00 PM</option>
+                    {% endif %}
+                    {% if time_slots.three > 0 or three > 0 %}
                     <option value="3:00">3:00 PM</option>
+                    {% endif %}
+                    {% if time_slots.four > 0 or four > 0 %}
                     <option value="4:00">4:00 PM</option>
+                    {% endif %}
+                    {% if time_slots.five > 0 or five > 0 %}
                     <option value="5:00">5:00 PM</option>
+                    {% endif %}
                 </select>
             </div>
             <div class="submit-block text-right">

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.views import View
 from .models import RequestAppointment, MessageRequest, ApprovedAppointments, Customer, CustomerEntry, TimeSlots
 from namaste_app.forms import RequestForm, MessageForm, CreateUserForm, CustomAuthenticationForm, SignatureForm, TimeForm
 from django.contrib.auth.decorators import login_required
@@ -11,6 +12,10 @@ import json
 from django.contrib import messages
 from django.urls import reverse
 from django.http import JsonResponse
+from namaste.settings import STRIPE_SECRET_KEY, STRIPE_PUBLIC_KEY
+import stripe
+
+stripe.api_key = STRIPE_SECRET_KEY
 
 
 label_to_field = {
@@ -623,6 +628,15 @@ def hora(request, appointment_id):
 
         form = TimeForm()
         context['time_slots'] = form
+        context['nine'] = 3
+        context['ten'] = 3
+        context['eleven'] = 3
+        context['twelve'] = 3
+        context['one'] = 3
+        context['two'] = 3
+        context['three'] = 3
+        context['four'] = 3
+        context['five'] = 3
 
         if request.method == 'POST':
             response = handlePostRequestForNewTimeSlot(request, lastAppointment)
@@ -631,35 +645,97 @@ def hora(request, appointment_id):
 
     return render(request, "time.html", context)
 
-def handlePostRequestForNewTimeSlot(request, lastAppointment):
-    new_time_slot_record = TimeSlots(
-        date = lastAppointment.date,
-        hour_selected = request.POST.get('hour_selected')
-    )
-    new_time_slot_record.save()
-    time_slot = new_time_slot_record.hour_selected
-    subtractTimeSlotFromDb(new_time_slot_record, time_slot)
-    form = TimeForm(request.POST)
-    if form.is_valid():
-        return redirect('home')
-    else:
-        print(form.errors)
-        print("time_slot:", time_slot)
-    return None
+# Stripe Payments 
+class CreateCheckoutSessionView(View):
+    def post(self, request, *args, **kwargs):
 
+        YOUR_DOMAIN = '127.0.0.1:8000'
+  
+        checkout_session = stripe.checkout.Session.create(
+            line_items=[
+                {
+                    # Provide the exact Price ID (for example, pr_1234) of the product you want to sell
+                    'price_data': {
+                        'currency': 'usd',
+                        'unit_amount': 2000,
+                        'product_data': {
+                            'name': 'Stubborn Attachments',
+                            # 'images': ['https://i.imgur.com/EHyR2nP.png'],
+                        },
+                    },
+                    'quantity': 1,
+                },
+            ],
+            mode='payment',
+            success_url=YOUR_DOMAIN + '/success.html',
+            cancel_url=YOUR_DOMAIN + '/cancel.html',
+        )
+        return JsonResponse({
+            'id': checkout_session.id
+        })
+
+
+def payment(request):
+    context = {}
+    context['stripe_public_key'] =  STRIPE_PUBLIC_KEY
+    if request.method == "POST":
+        try:
+            # `amount` should be in cents (1500 cents = $15.00)
+            intent = stripe.PaymentIntent.create(
+                amount=1500,
+                currency='usd',
+                description='Appointment Deposit',
+                payment_method_types=['card'],
+            )
+            return render(request, 'confirm_payment.html', {
+                'client_secret': intent.client_secret
+            })
+        except stripe.error.StripeError as e:
+            return render(request, 'error.html', {'message': str(e)})
+        
+    
+    
+    return render(request, 'payments.html', context)
+
+def payment_confirmation(request):
+    context = {}
+
+    return render(request, 'confirm_payment.html', context)
+
+def payment_error(request):
+    context = {}
+
+    return render(request, 'error_payment.html', context)
+
+# Helper function
+def handlePostRequestForNewTimeSlot(request, lastAppointment):
+    try:
+
+        new_time_slot_record = TimeSlots(
+            date = lastAppointment.date,
+            hour_selected = request.POST.get('hour_selected')
+        )
+        new_time_slot_record.save()
+        time_slot = new_time_slot_record.hour_selected
+        subtractTimeSlotFromDb(new_time_slot_record, time_slot)
+        return redirect('payment')
+    except Exception as e:
+        print(f'Error while setting time slot: {e}')
+        print("time_slot:", time_slot)
+
+# Helper function
 def handlePostRequestForExistingTimeSlot(request, timeSlotObject):
 
-    form = TimeForm(request.POST)
-    if form.is_valid():
+    try:
         time_slot = request.POST.get('hour_selected')
         subtractTimeSlotFromDb(timeSlotObject, time_slot)
         
-        return redirect('home')
-    else:
-        print(form.errors)
+        return redirect('payment')
+    except Exception as e:
+        print(e)
         print("time_slot:", time_slot)
-    return None
 
+# Helper function
 def subtractTimeSlotFromDb(dbObject, time_slot):
     if time_slot == '9:00' and dbObject.nine != 0:
         dbObject.nine = dbObject.nine - 1
