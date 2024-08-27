@@ -1,5 +1,5 @@
 from django.db import models
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
 import json
 import uuid
@@ -167,7 +167,7 @@ class CustomerEntry(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=100)
-    price = models.IntegerField(default=0) #cents
+    price = models.IntegerField(default=0)
 
     def __str__(self):
         return self.name

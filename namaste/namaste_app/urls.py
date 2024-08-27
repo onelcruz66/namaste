@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import CustomLoginView, CreateCheckoutSessionView
+from .views import CustomLoginView
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -45,5 +45,4 @@ urlpatterns = [
     path("payment/", views.payment, name="payment"),
     path("payment-confirmation/", views.payment_confirmation, name="payment_confirmation"),
     path("payment-error/", views.payment_error, name="payment_error"),
-    path("create-checkout-session/", CreateCheckoutSessionView.as_view(), name="create-checkout-session")
 ]
