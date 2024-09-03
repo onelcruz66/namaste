@@ -297,6 +297,29 @@ p {
 	border-color:#DF8710;
 	background:none;
 }
+
+.btn.btn-bro,
+.btn-bro:not(:disabled):not(.disabled).active, 
+.btn-bro:not(:disabled):not(.disabled):active, 
+.show>.btn-bro.dropdown-toggle{
+	line-height: 26px;
+    border: 2px solid #DF8710;
+    border-radius: 27px;
+    padding: 12px 35px;
+	margin-left: 500px;
+    color: #fff;
+    font-weight: 500;
+	background:#DF8710;
+	text-transform:capitalize;
+	opacity:1;
+	box-shadow:none!important;
+	display: inline-block;
+}
+.btn-bro:hover{
+	color:#DF8710;
+	border-color: #DF8710;
+	background:none;
+}
 .btn.btn-default:hover{
 	background:#DF8710;
 	color:#fff;

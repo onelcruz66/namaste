@@ -12,8 +12,9 @@ import json
 from django.contrib import messages
 from django.urls import reverse
 from django.http import JsonResponse
-from namaste.settings import STRIPE_SECRET_KEY, STRIPE_PUBLIC_KEY
+from namaste.settings import STRIPE_SECRET_KEY, STRIPE_PUBLIC_KEY, STRIPE_WEBHOOK_SECRET
 import stripe
+from django.views.decorators.csrf import csrf_exempt
 
 from .utilities import *
 
@@ -403,7 +404,6 @@ def lebody(request):
 
     return render(request, 'lebody.html', context)
 
-@login_required
 def relevo(request):
 
     context = {}
@@ -437,7 +437,7 @@ def relevo(request):
                 new_doc.signature.save(f"{new_doc.first_name}_signature.{ext}", data, save=False)
 
             new_doc.save()
-            return redirect('buscar_cliente')  # Redirect after POST
+            return redirect('home')  # Redirect after POST
     else:
         form = SignatureForm()
 
@@ -637,46 +637,8 @@ def hora(request, appointment_id):
 
 def payment(request):
     context = {}
-
-    if request.method == "POST":
-        checkout_session = stripe.checkout.Session.create(
-            payment_method_types=['card'],
-            line_items=[
-                {
-                    'price_data': {
-                        'currency': 'usd',
-                        'unit_amount': 1500,
-                        'product_data': {
-                            'name': 'Stubborn Attachments',
-                        },
-                    },
-                    'quantity': 1,
-                },
-            ],
-            mode='payment',
-            success_url=redirect('payment_confirmation'),
-            cancel_url=redirect('payment_error'),
-        )
-        return JsonResponse({
-            'id': checkout_session.id
-        })
-
-    # context['stripe_public_key'] =  STRIPE_PUBLIC_KEY
-    # if request.method == "POST":
-    #     try:
-    #         # `amount` should be in cents (1500 cents = $15.00)
-    #         intent = stripe.PaymentIntent.create(
-    #             amount=1500,
-    #             currency='usd',
-    #             description='Appointment Deposit',
-    #             payment_method_types=['card'],
-    #         )
-    #         return render(request, 'confirm_payment.html', {
-    #             'client_secret': intent.client_secret
-    #         })
-    #     except stripe.error.StripeError as e:
-    #         return render(request, 'error.html', {'message': str(e)})
-        
+    context['stripe_public_key'] = STRIPE_PUBLIC_KEY
+    
     return render(request, 'payments.html', context)
 
 def payment_confirmation(request):
@@ -689,3 +651,79 @@ def payment_error(request):
 
     return render(request, 'error_payment.html', context)
 
+@csrf_exempt
+def stripe_config(request):
+    
+    stripe_config = {'publicKey': STRIPE_PUBLIC_KEY}
+    return JsonResponse(stripe_config, safe=False)
+    
+
+@csrf_exempt
+def create_checkout_session(request):
+    if request.method == 'GET':
+        domain_url = 'http://localhost:8000/'
+        stripe.api_key = STRIPE_SECRET_KEY
+        try:
+            # Create new Checkout Session for the order
+            # Other optional params include:
+            # [billing_address_collection] - to display billing address details on the page
+            # [customer] - if you have an existing Stripe Customer ID
+            # [payment_intent_data] - capture the payment later
+            # [customer_email] - prefill the email input in the form
+            # For full details see https://stripe.com/docs/api/checkout/sessions/create
+
+            # ?session_id={CHECKOUT_SESSION_ID} means the redirect will have the session ID set as a query param
+            checkout_session = stripe.checkout.Session.create(
+                client_reference_id=request.user.id if request.user.is_authenticated else None,
+                success_url=domain_url + 'payment-confirmation?session_id={CHECKOUT_SESSION_ID}',
+                cancel_url=domain_url + 'payment-error/',
+                payment_method_types=['card'],
+                mode='payment',
+                line_items=[
+                {
+                    'price_data': {
+                        'currency': 'usd',
+                        'unit_amount': 1500,
+                        'product_data': {
+                            'name': 'Deposito Regular',
+                        },
+                    },
+                    'quantity': 1,
+                },
+            ],
+            )
+            return JsonResponse({'sessionId': checkout_session['id']})
+        except Exception as e:
+            return JsonResponse({'error': str(e)})
+        
+@csrf_exempt
+def stripe_webhook(request):
+    stripe.api_key = STRIPE_SECRET_KEY
+    endpoint_secret = STRIPE_WEBHOOK_SECRET
+    payload = request.body
+    sig_header = request.META['HTTP_STRIPE_SIGNATURE']
+    event = None
+
+    try:
+        event = stripe.Webhook.construct_event(
+            payload, sig_header, endpoint_secret
+        )
+    except ValueError as e:
+        # Invalid payload
+        return HttpResponse(status=400)
+    except stripe.error.SignatureVerificationError as e:
+        # Invalid signature
+        return HttpResponse(status=400)
+
+    # Handle the checkout.session.completed event
+    if event['type'] == 'checkout.session.completed':
+        print("Payment was successful.")
+        # TODO: run some custom code here
+
+    return HttpResponse(status=200)
+
+@login_required
+def agenda(request):
+    context = {}
+
+    return render(request, "agenda.html", context)

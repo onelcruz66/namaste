@@ -45,4 +45,8 @@ urlpatterns = [
     path("payment/", views.payment, name="payment"),
     path("payment-confirmation/", views.payment_confirmation, name="payment_confirmation"),
     path("payment-error/", views.payment_error, name="payment_error"),
+    path('config/', views.stripe_config, name="config"),
+    path('create-checkout-session/', views.create_checkout_session),
+    path('webhook/', views.stripe_webhook),
+    path("agenda/", views.agenda, name="agenda"),
 ]

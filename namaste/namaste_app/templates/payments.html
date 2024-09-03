@@ -41,26 +41,25 @@ input {
   width: 100%;
   background: white;
 }
+
+/* .submitBtn .btn .btn-primary {
+  display: inline-block;
+  color: blue;
+} */
 </style>
 
-<!-- templates/payment.html -->
-<form action="{% url 'payment' %}" method="post" id="payment-form">
-    {% csrf_token %}
-    <div class="form-row">
-        <label for="card-element">
-            Credit or Debit Card
-        </label>
-        <div id="card-element">
-          <!-- A Stripe Element will be inserted here. -->
-        </div>
-     
-        <!-- Used to display form errors. -->
-        <div id="card-errors" role="alert"></div>
-    </div>
-
-    <button type="submit">Submit Payment</button>
-</form>
-
+<section class="section-spacing">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="section-title text-center">
+                  <h2><span>Continuar A Pagina de Pago</span></h2>
+              </div>
+          </div>
+      </div>
+    <button type="submit" id="submitBtn" class="btn btn-bro">Pagar</button>
+  </div>
+</section>
 <script src="https://js.stripe.com/v3/"></script>
 <script src="/static/js/stripe.js"></script>
 
