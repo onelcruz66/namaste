@@ -586,7 +586,7 @@ def booking(request):
 
             # After database entry is saved, pass in the db object id to the hora view.
             getRequestedAppointment = RequestAppointment.objects.last()
-            return redirect('hora', appointment_id=getRequestedAppointment.id) 
+            return redirect('gracias') 
         else:
             print(form.errors)
     else:
@@ -727,3 +727,9 @@ def agenda(request):
     context = {}
 
     return render(request, "agenda.html", context)
+
+
+def gracias(request):
+    context = {}
+
+    return render(request, "gracias.html", context)

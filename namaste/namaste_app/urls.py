@@ -49,4 +49,5 @@ urlpatterns = [
     path('create-checkout-session/', views.create_checkout_session),
     path('webhook/', views.stripe_webhook),
     path("agenda/", views.agenda, name="agenda"),
+    path("gracias/", views.gracias, name="gracias"),
 ]
