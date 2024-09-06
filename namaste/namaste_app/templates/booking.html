@@ -2,42 +2,6 @@
 {% load widget_tweaks %}
 {% block content %}
 
-<section class="carousel slide" id="banner" data-ride="carousel" data-pause="false">
-    <div class="carousel-inner">
-        <div class="carousel-item active" style="background-image:url(/static/img/namaste/buddha_hero_banner.jpg)">
-            <div class="banner-caption">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-7">
-                            <style>
-                                .margin-adjust {
-                                    margin-left: 650px; /* Adjusts left margin to push content to the right */
-                                }
-
-                                @media (max-width: 767px) {
-                                    .margin-adjust {
-                                        margin-left: 170px;
-                                    }
-                                }
-                            </style>
-                            <div class="hero-text margin-adjust">
-                                <!-- Desktop image -->
-                                <img src="/static/img/namaste/namaste_hand_logo_black.jpg" alt="namaste_logo" class="desktop-image animated fadeInDown">
-
-                                <!-- Mobile image -->
-                                <img src="/static/img/namaste/namaste_hand_logo_black_136x136.jpg" alt="namaste_logo_mobile" class="mobile-image animated fadeInDown">
-
-                                <h1 class="animated fadeInUp">NAMASTÉ</h1>
-                                <h2 class="animated fadeInUp">Booking</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Banner Section -->
 
 <!--<a class="nav-link" href="#" data-toggle="modal" data-target="#appointment">RESERVA TU CITA</a>-->
 <section class="section-spacing">
@@ -47,6 +11,10 @@
                 <div class="section-title text-center">
                     <h2><span>Paquetes</span></h2>
                     <h3>Ahorra mas con nuestros paquetes de descuentos.</h3>
+                    <p>
+                        Para todos los paquetes se requiere un depósito de $90 dólares lo cual serían los $15 dólares por cada una de las secciones agendadas.
+                        Luego en cada sección se le acreditará al pago los $15 dólares depósitados.
+                    </p>
                 </div>
             </div>
         </div>
@@ -54,16 +22,12 @@
             <div class="col-md-4">
                 <div class="service-item wow fadeIn">
                     <div class="thumb">
-                        <a href="{% url 'post-operatorio' %}"><img src="/static/img/namaste/golden_detox.jpg" alt=""></a>
+                        <img src="/static/img/namaste/golden_detox.jpg" alt="">
                     </div>
                     <div class="package text-center">
                         <h3 class="package-title" id="package-title">Gold Detox (6 Secciones)</h3>
-                        <p>Al seleccionar el paquete de 6 secciones obtendrás un descuento de $30 dólares.</p>
-                        <p>Se requiere un depósito de $90 dólares lo cual serían los $15 dólares por cada una de las secciones agendadas.
-                            Luego en cada sección se le acreditará al pago los $15 dólares depósitados.</p>
-                        <p>Precio Regular: $390</p>
-                        <p>Precio Por Paquete: $360</p>
-                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Elegir</a>
+                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reservar</a>
+                        <a href="{% url 'detox-oro' %}" class="btn btn-primary">Mas Info</a>
                     </div>
                 </div>
             </div>
@@ -71,13 +35,12 @@
             <div class="col-md-4">
                 <div class="service-item wow fadeIn">
                     <div class="thumb">
-                        <a href="{% url 'post-operatorio' %}"><img src="/static/img/namaste/metal_therapy_re.jpg" alt=""></a>
+                        <img src="/static/img/namaste/metal_therapy_re.jpg" alt="">
                     </div>
                     <div class="package text-center">
                         <h3 class="package-title" id="package-title">Metaloterapia (6 Secciones)</h3>
-                        <p>Tal procedimiento requiere un depósito de $90.00 dolares ($15.00 dolares de retención por sección, 
-                            tal costo será acreditado a la sección una vez la sección sea terminada.)</p>
-                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Elegir</a>
+                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reservar</a>
+                        <a href="{% url 'terapia-metal' %}" class="btn btn-primary">Mas Info</a>
                     </div>
                 </div>
             </div>
@@ -85,13 +48,12 @@
             <div class="col-md-4">
                 <div class="service-item wow fadeIn">
                     <div class="thumb">
-                        <a href="{% url 'masaje-prenatal' %}"><img src="/static/img/namaste/wood_therapy.jpg" alt=""></a>
+                        <img src="/static/img/namaste/wood_therapy.jpg" alt="">
                     </div>
                     <div class="package text-center">
                         <h3 class="package-title" id="package-title">Maderoterapia (6 Secciones)</h3>
-                        <p>Tal procedimiento requiere un depósito de $90.00 dolares ($15.00 dolares de retención por sección, 
-                            tal costo será acreditado a la sección una vez la sección sea terminada.)</p>
-                            <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Elegir</a>
+                            <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reservar</a>
+                            <a href="{% url 'terapia-madera' %}" class="btn btn-primary">Mas Info</a>
                     </div>
                 </div>
             </div>
@@ -107,6 +69,11 @@
                 <div class="section-title text-center">
                     <h2><span>Servicios</span></h2>
                     <h3>Escoga el servicio que desee agendar.</h3>
+                    <p>
+                        Toda cita requiere un depósito de $15 antes de ser agendado. 
+                        De ausentarse a la cita, el depósito no es reembolsable. En caso de que desee agendar otra cita, 
+                        nuevamente se requerirá el depósito de $15 para una nueva cita.
+                    </p>
                 </div>
             </div>
         </div>
@@ -114,12 +81,13 @@
             <div class="col-md-4">
                 <div class="service-item wow fadeIn">
                     <div class="thumb">
-                        <a href="{% url 'masaje-sueco' %}"><img src="/static/img/namaste/swiss_massage.jpg" alt=""></a>
+                        <img src="/static/img/namaste/swiss_massage.jpg" alt="">
                     </div>
                     <div class="package text-center">
                         <h3 class="package-title" id="package-title">Masaje Sueco</h3>
                         <p>Este masaje, inspirado en las prácticas suizas de bienestar, utiliza movimientos precisos y presión controlada para liberar la tensión muscular y mejorar la circulación.</p>
-                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Elegir</a>
+                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reservar</a>
+                        <a href="{% url 'masaje-sueco' %}" class="btn btn-primary">Mas Info</a>
                     </div>
                 </div>
             </div>
@@ -127,12 +95,13 @@
             <div class="col-md-4">
                 <div class="service-item wow fadeIn">
                     <div class="thumb">
-                        <a href="{% url 'post-operatorio' %}"><img src="/static/img/namaste/post_surgical.jpg" alt=""></a>
+                        <img src="/static/img/namaste/post_surgical.jpg" alt="">
                     </div>
                     <div class="package text-center">
                         <h3 class="package-title" id="package-title">Post-Operatorio</h3>
                         <p>Experimenta el poder curativo de un masaje postoperatorio, diseñado para promover la recuperación después de una cirugía.</p>
-                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Elegir</a>
+                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reservar</a>
+                        <a href="{% url 'post-operatorio' %}" class="btn btn-primary">Mas Info</a>
                     </div>
                 </div>
             </div>
@@ -140,12 +109,13 @@
             <div class="col-md-4">
                 <div class="service-item wow fadeIn">
                     <div class="thumb">
-                        <a href="{% url 'masaje-prenatal' %}"><img src="/static/img/namaste/prenatal_massage.jpg" alt=""></a>
+                        <img src="/static/img/namaste/prenatal_massage.jpg" alt="">
                     </div>
                     <div class="package text-center">
                         <h3 class="package-title" id="package-title">Masaje Prenatal</h3>
                         <p>Disfruta de un masaje prenatal diseñado específicamente para mujeres embarazadas, que ofrece alivio y relajación durante esta etapa especial de la vida.</p>
-                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Elegir</a>
+                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reservar</a>
+                        <a href="{% url 'masaje-prenatal' %}" class="btn btn-primary">Mas Info</a>
                     </div>
                 </div>
             </div>
@@ -153,12 +123,13 @@
             <div class="col-md-4">
                 <div class="service-item wow fadeIn">
                     <div class="thumb">
-                        <a href="{% url 'masaje-profundo' %}"><img src="/static/img/namaste/deep_massage.jpg" alt=""></a>
+                        <img src="/static/img/namaste/deep_massage.jpg" alt="">
                     </div>
                     <div class="package text-center">
                         <h3 class="package-title" id="package-title">Masaje Profundo</h3>
                         <p>Sumérgete en una experiencia revitalizante con nuestro masaje de tejido profundo, diseñado para liberar la tensión muscular y aliviar los nudos de estrés acumulados.</p>
-                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Elegir</a>
+                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reservar</a>
+                        <a href="{% url 'masaje-profundo' %}" class="btn btn-primary">Mas Info</a>
                     </div>
                 </div>
             </div>
@@ -166,12 +137,13 @@
             <div class="col-md-4">
                 <div class="service-item wow fadeIn">
                     <div class="thumb">
-                        <a href="{% url 'detox-oro' %}"><img src="/static/img/namaste/golden_detox.jpg" alt=""></a>
+                        <img src="/static/img/namaste/golden_detox.jpg" alt="">
                     </div>
                     <div class="package text-center">
                         <h3 class="package-title" id="package-title">Gold Detox</h3>
                         <p>Técnica creada en Colombia la cual consiste y tiene como función principal desintoxicar, desinflamar, y moldear con un buen drenaje.</p>
-                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Elegir</a>
+                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reservar</a>
+                        <a href="{% url 'detox-oro' %}" class="btn btn-primary">Mas Info</a>
                     </div>
                 </div>
             </div>
@@ -179,12 +151,13 @@
             <div class="col-md-4">
                 <div class="service-item wow fadeIn">
                     <div class="thumb">
-                        <a href="{% url 'vacuslim' %}"><img src="/static/img/namaste/vacuslim.jpg" alt=""></a>
+                        <img src="/static/img/namaste/vacuslim.jpg" alt="">
                     </div>
                     <div class="package text-center">
                         <h3 class="package-title" id="package-title">Vacuslim-48</h3>
                         <p>Nuestro tratamiento de Vacuslim combina la succión controlada con masajes terapéuticos para estimular la circulación, reducir la celulitis y mejorar la firmeza de la piel.</p>
-                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Elegir</a>
+                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reservar</a>
+                        <a href="{% url 'vacuslim' %}" class="btn btn-primary">Mas Info</a>
                     </div>
                 </div>
             </div>
@@ -193,12 +166,13 @@
             <div class="col-md-4">
                 <div class="service-item wow fadeIn">
                     <div class="thumb">
-                        <a href="{% url 'waxing' %}"><img src="/static/img/namaste/waxing.jpg" alt=""></a>
+                        <img src="/static/img/namaste/waxing.jpg" alt="">
                     </div>
                     <div class="package text-center">
                         <h3 class="package-title" id="package-title">Depilación</h3>
                         <p>Disfruta de una piel suave y sin vello con nuestros servicios profesionales de depilación con cera.</p>
-                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Elegir</a>
+                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reservar</a>
+                        <a href="{% url 'waxing' %}" class="btn btn-primary">Mas Info</a>
                     </div>
                 </div>
             </div>
@@ -206,12 +180,13 @@
             <div class="col-md-4">
                 <div class="service-item wow fadeIn">
                     <div class="thumb">
-                        <a href="{% url 'terapia-madera' %}"><img src="/static/img/namaste/wood_therapy.jpg" alt=""></a>
+                        <img src="/static/img/namaste/wood_therapy.jpg" alt="">
                     </div>
                     <div class="package text-center">
                         <h3 class="package-title" id="package-title">Maderoterapia</h3>
                         <p>Nuestra terapia de madera, una técnica ancestral que utiliza instrumentos de madera natural para estimular la circulación, reducir la celulitis y tonificar la piel.</p>
-                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Elegir</a>
+                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reservar</a>
+                        <a href="{% url 'terapia-madera' %}" class="btn btn-primary">Mas Info</a>
                     </div>
                 </div>
             </div>
@@ -219,12 +194,13 @@
             <div class="col-md-4">
                 <div class="service-item wow fadeIn">
                     <div class="thumb">
-                        <a href="{% url 'terapia-metal' %}"><img src="/static/img/namaste/metal_therapy_re.jpg" alt=""></a>
+                        <img src="/static/img/namaste/metal_therapy_re.jpg" alt="">
                     </div>
                     <div class="package text-center">
                         <h3 class="package-title" id="package-title">Metaloterapia</h3>
                         <p>El metal se desliza suavemente sobre la piel, liberando la tensión muscular, mejorando la circulación y promoviendo una sensación de bienestar profundo.</p>
-                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Elegir</a>
+                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reservar</a>
+                        <a href="{% url 'terapia-metal' %}" class="btn btn-primary">Mas Info</a>
                     </div>
                 </div>
             </div>
@@ -232,12 +208,13 @@
             <div class="col-md-4">
                 <div class="service-item wow fadeIn">
                     <div class="thumb">
-                        <a href="{% url 'drenaje' %}"><img src="/static/img/namaste/drenaje2.jpg" alt=""></a>
+                        <img src="/static/img/namaste/drenaje2.jpg" alt="">
                     </div>
                     <div class="package text-center">
                         <h3 class="package-title" id="package-title">Drenaje Linfático</h3>
                         <p>Nuestro masaje de drenaje linfático, una técnica suave y terapéutica diseñada para estimular el sistema linfático y promover la eliminación de toxinas del cuerpo.</p>
-                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Elegir</a>
+                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reservar</a>
+                        <a href="{% url 'drenaje' %}" class="btn btn-primary">Mas Info</a>
                     </div>
                 </div>
             </div>
@@ -245,12 +222,13 @@
             <div class="col-md-4">
                 <div class="service-item wow fadeIn">
                     <div class="thumb">
-                        <a href="{% url 'quiromasaje' %}"><img src="/static/img/namaste/quiromasaje.jpg" alt=""></a>
+                        <img src="/static/img/namaste/quiromasaje.jpg" alt="">
                     </div>
                     <div class="package text-center">
                         <h3 class="package-title" id="package-title">Quiromasaje</h3>
                         <p>Consiste en un conjunto de técnicas que tienen como función mejorar los problemas del paciente de acuerdo a sus necesidades.</p>
-                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Elegir</a>
+                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reservar</a>
+                        <a href="{% url 'quiromasaje' %}" class="btn btn-primary">Mas Info</a>
                     </div>
                 </div>
             </div>
@@ -258,12 +236,13 @@
             <div class="col-md-4">
                 <div class="service-item wow fadeIn">
                     <div class="thumb">
-                        <a href="{% url 'copas-chinas' %}"><img src="/static/img/namaste/copas_chinas.jpg" alt=""></a>
+                        <img src="/static/img/namaste/copas_chinas.jpg" alt="">
                     </div>
                     <div class="package text-center">
                         <h3 class="package-title" id="package-title">Copas Chinas</h3>
                         <p>Esta técnica milenaria, utilizada en la medicina tradicional china, ofrece una manera efectiva de aliviar la tensión muscular y mejorar la circulación.</p>
-                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Elegir</a>
+                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reservar</a>
+                        <a href="{% url 'copas-chinas' %}" class="btn btn-primary">Mas Info</a>
                     </div>
                 </div>
             </div>
@@ -271,12 +250,13 @@
             <div class="col-md-4">
                 <div class="service-item wow fadeIn">
                     <div class="thumb">
-                        <a href="{% url 'pistola-masaje' %}"><img src="/static/img/namaste/massage_gun (1).jpg" alt=""></a>
+                        <img src="/static/img/namaste/massage_gun (1).jpg" alt="">
                     </div>
                     <div class="package text-center">
                         <h3 class="package-title" id="package-title">Pistola De Masaje</h3>
                         <p>Esta herramienta de vanguardia utiliza percusiones rápidas y profundas para estimular los músculos, aliviar la tensión y mejorar la circulación sanguínea.</p>
-                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Elegir</a>
+                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reservar</a>
+                        <a href="{% url 'pistola-masaje' %}" class="btn btn-primary">Mas Info</a>
                     </div>
                 </div>
             </div>
@@ -284,12 +264,13 @@
             <div class="col-md-4">
                 <div class="service-item wow fadeIn">
                     <div class="thumb">
-                        <a href="{% url 'maderoterapia-facial' %}"><img src="/static/img/namaste/maderoterapia_facial.jpg" alt=""></a>
+                        <img src="/static/img/namaste/maderoterapia_facial.jpg" alt="">
                     </div>
                     <div class="package text-center">
                         <h3 class="package-title" id="package-title">Maderoterapia Facial</h3>
                         <p>Esta técnica ancestral, combinada con modernas prácticas de bienestar, utiliza instrumentos de madera especialmente diseñados para estimular y tonificar la piel del rostro, promoviendo un aspecto más juvenil y radiante.</p>
-                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Elegir</a>
+                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reservar</a>
+                        <a href="{% url 'maderoterapia-facial' %}" class="btn btn-primary">Mas Info</a>
                     </div>
                 </div>
             </div>
@@ -297,12 +278,13 @@
             <div class="col-md-4">
                 <div class="service-item wow fadeIn">
                     <div class="thumb">
-                        <a href="{% url 'lipolaser' %}"><img src="/static/img/namaste/lipolaser.jpg" alt=""></a>
+                        <img src="/static/img/namaste/lipolaser.jpg" alt="">
                     </div>
                     <div class="package text-center">
                         <h3 class="package-title" id="package-title">Lipoláser</h3>
                         <p>Ofrecemos el revolucionario tratamiento Lipoláser, una solución no invasiva para esculpir el cuerpo y reducir la grasa localizada.</p>
-                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Elegir</a>
+                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reservar</a>
+                        <a href="{% url 'lipolaser' %}" class="btn btn-primary">Mas Info</a>
                     </div>
                 </div>
             </div>
@@ -310,12 +292,13 @@
             <div class="col-md-4">
                 <div class="service-item wow fadeIn">
                     <div class="thumb">
-                        <a href="{% url 'vacumterapia' %}"><img src="/static/img/namaste/vacuterapia.jpg" alt=""></a>
+                        <img src="/static/img/namaste/vacuterapia.jpg" alt="">
                     </div>
                     <div class="package text-center">
                         <h3 class="package-title" id="package-title">Vacumterapia</h3>
                         <p>Ayuda a mejorar la apariencia natural del glúteo, eliminando la apariencia de la celulitis primer nivel.</p>
-                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Elegir</a>
+                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reservar</a>
+                        <a href="{% url 'vacumterapia' %}" class="btn btn-primary">Mas Info</a>
                     </div>
                 </div>
             </div>
@@ -323,12 +306,13 @@
             <div class="col-md-4">
                 <div class="service-item wow fadeIn">
                     <div class="thumb">
-                        <a href="{% url 'lebody' %}"><img src="/static/img/namaste/lebody.jpg" alt=""></a>
+                        <img src="/static/img/namaste/lebody.jpg" alt="">
                     </div>
                     <div class="package text-center">
                         <h3 class="package-title" id="package-title">LeBody</h3>
                         <p>Contrae los músculos a traves de la estimulación y frecuencia. Nos permite tonificar los músculos y moldear el área.</p>
-                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Elegir</a>
+                        <a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reservar</a>
+                        <a href="{% url 'lebody' %}" class="btn btn-primary">Mas Info</a>
                     </div>
                 </div>
             </div>
@@ -417,7 +401,7 @@
 									<div class="input-group-addon">
 										<i class="fa fa-calendar"></i>
 									</div>
-									<input type="text" id="rdate" class="form-control date-pic" name="date" placeholder="mm/dd/yyyy" required data-error="Escoga fecha de reservación">
+									<input type="text" id="rdate" class="form-control date-pic" name="date_requested" placeholder="mm/dd/yyyy" required data-error="Escoga fecha de reservación">
 								</div>
 								<div class="help-block with-errors"></div>
 							</div>
@@ -436,7 +420,6 @@
         </div>
     </div>
 </div>
-
 
 <script src="/static/js/booking.js"></script>
 {% endblock %}

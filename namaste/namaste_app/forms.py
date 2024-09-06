@@ -7,7 +7,7 @@ from django.core.exceptions import ValidationError
 class RequestForm(forms.ModelForm): 
     class Meta:
         model = RequestAppointment
-        fields = ['first_name', 'last_name', 'email_address', 'phone_number', 'address', 'zip', 'city', 'service', 'date']
+        fields = ['first_name', 'last_name', 'email_address', 'phone_number', 'address', 'zip', 'city', 'service', 'date_requested']
 
         service = forms.ChoiceField(choices=[('Gold Detox (6 Secciones)', 'Gold Detox (6 Secciones)'), \
                                              ('Metaloterapia (6 Secciones)', 'Metaloterapia (6 Secciones)'), \

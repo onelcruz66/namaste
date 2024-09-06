@@ -15,7 +15,7 @@ import os
 
 STRIPE_PUBLIC_KEY = 'pk_test_51Pj5qpP1i7r9kCtP5xFGaZhdzvzTOJ6vsUtMuUr0CUQpGRs1AAwT50tpcrC6GRGPukr4kVP4QiHW0o0MsvWPjTOF00y0Dzj7pM'
 STRIPE_SECRET_KEY = 'sk_test_51Pj5qpP1i7r9kCtPUCKIZPQ4UBz3erppQrfH84cIEtNx0cP3gyHWFMwjWDjh6GYk1jGkRp3gbEEtdwu8tfwVh7lG008P0Z9oYD'
-STRIPE_WEBHOOK_SECRET = ''
+STRIPE_WEBHOOK_SECRET = 'whsec_f302068baaa96f2854e603861630abf64c95b1217b6f2ba92f37f7f5f59ca609'
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
