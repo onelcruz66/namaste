@@ -404,7 +404,49 @@ def lebody(request):
 
     return render(request, 'lebody.html', context)
 
+@login_required
 def relevo(request):
+
+    context = {}
+
+    if request.method == 'POST':
+        form = SignatureForm(request.POST)
+        if form.is_valid():
+            has_condition = form.cleaned_data['has_condition']
+            condition_names = form.cleaned_data['condition_names']
+            if has_condition and not condition_names:
+                form.add_error('condition_names', 'Please enter at least one condition name.')
+
+            # Create a new document instance but do not save it yet
+            new_doc = Customer(
+                first_name=form.cleaned_data['first_name'],
+                last_name=form.cleaned_data['last_name'],
+                email=form.cleaned_data['email'],
+                phone_number=form.cleaned_data['phone_number'],
+                address=form.cleaned_data['address'],
+                has_condition=has_condition,
+                condition_names=condition_names,
+                accept_photo=form.cleaned_data['accept_photo'],
+                accept_publishing=form.cleaned_data['accept_publishing']
+            )
+            signature_data = request.POST.get('signature')
+            if signature_data:
+                format, imgstr = signature_data.split(';base64,')  # format ~= data:image/png;base64
+                ext = format.split('/')[-1]  # assume image/png
+                data = ContentFile(base64.b64decode(imgstr), name='temp.' + ext)
+
+                new_doc.signature.save(f"{new_doc.first_name}_signature.{ext}", data, save=False)
+
+            new_doc.save()
+            return redirect('buscar_cliente')  # Redirect after POST
+    else:
+        form = SignatureForm()
+
+    context['form'] = form
+
+    return render(request, 'relevo.html', context)
+
+def relevo_clientes(request):
 
     context = {}
 
@@ -443,7 +485,7 @@ def relevo(request):
 
     context['form'] = form
 
-    return render(request, 'relevo.html', context)
+    return render(request, 'relevo-clientes.html', context)
 
 # Admin page views.
 @login_required
@@ -584,8 +626,6 @@ def booking(request):
         if form.is_valid():
             form.save()
 
-            # After database entry is saved, pass in the db object id to the hora view.
-            getRequestedAppointment = RequestAppointment.objects.last()
             return redirect('gracias') 
         else:
             print(form.errors)
@@ -733,3 +773,21 @@ def gracias(request):
     context = {}
 
     return render(request, "gracias.html", context)
+
+@login_required
+def citas_solicitadas(request):
+    context = {}
+
+    try:
+        requested_appointments = RequestAppointment.objects.order_by('date_requested')
+        context['requested_appointments'] = requested_appointments
+    except Exception as e:
+        return f"Error fetching records: {str(e)}"
+
+    return render(request, "citas-solicitadas.html", context)
+
+@login_required
+def borrar_cita(request, user_id):
+    appointment = RequestAppointment.objects.get(pk=user_id)
+    appointment.delete()
+    return redirect('citas-solicitadas')

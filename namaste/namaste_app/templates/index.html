@@ -80,7 +80,7 @@
 							<h3 class="package-title" id="package-title">Masaje Sueco</h3>
 							<p>Este masaje, inspirado en las prácticas suizas de bienestar, utiliza movimientos precisos y presión controlada para liberar la tensión muscular y mejorar la circulación.</p>
 							<a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reservar</a>
-							<a href="{% url 'masaje-sueco' %}" class="btn btn-default">Leer Mas</a>
+							<a href="{% url 'masaje-sueco' %}" class="btn btn-primary">Leer Mas</a>
 						</div>
 					</div>
 				</div>
@@ -90,10 +90,11 @@
 						<div class="thumb">
 							<a href="{% url 'post-operatorio' %}"><img src="/static/img/namaste/post_surgical.jpg" alt=""></a>
 						</div>
-						<div class="service-info text-center">
-							<h3><a href="{% url 'post-operatorio' %}">Post-Operatorio</a></h3>
-							<p>Experimenta el poder curativo de un masaje postoperatorio, diseñado para promover la recuperación después de una cirugía.</p>
-							<a href="{% url 'post-operatorio' %}" class="btn btn-default">Leer Mas</a>
+						<div class="package text-center">
+							<h3 class="package-title" id="package-title">Post-Operatorio</h3>
+							<p>Experimenta el poder curativo de un masaje post-operatorio, diseñado para promover la recuperación después de una cirugía.</p>
+							<a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reservar</a>
+							<a href="{% url 'post-operatorio' %}" class="btn btn-primary">Leer Mas</a>
 						</div>
 					</div>
 				</div>
@@ -103,10 +104,11 @@
 						<div class="thumb">
 							<a href="{% url 'masaje-prenatal' %}"><img src="/static/img/namaste/prenatal_massage.jpg" alt=""></a>
 						</div>
-						<div class="service-info text-center">
-							<h3><a href="{% url 'masaje-prenatal' %}">Masaje Prenatal</a></h3>
+						<div class="package text-center">
+							<h3 class="package-title" id="package-title">Masaje Prenatal</h3>
 							<p>Disfruta de un masaje prenatal diseñado específicamente para mujeres embarazadas, que ofrece alivio y relajación durante esta etapa especial de la vida.</p>
-							<a href="{% url 'masaje-prenatal' %}" class="btn btn-default">Leer Mas</a>
+							<a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reservar</a>
+							<a href="{% url 'masaje-prenatal' %}" class="btn btn-primary">Leer Mas</a>
 						</div>
 					</div>
 				</div>
@@ -160,10 +162,11 @@
 						<div class="thumb">
 							<a href="{% url 'waxing' %}"><img src="/static/img/namaste/waxing.jpg" alt=""></a>
 						</div>
-						<div class="service-info text-center">
-							<h3><a href="{% url 'waxing' %}">Depilación</a></h3>
+						<div class="package text-center">
+							<h3 class="package-title" id="package-title">Depilación</h3>
 							<p>Disfruta de una piel suave y sin vello con nuestros servicios profesionales de depilación con cera.</p>
-							<a href="{% url 'waxing' %}" class="btn btn-default">Leer Mas</a>
+							<a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reservar</a>
+							<a href="{% url 'waxing' %}" class="btn btn-primary">Leer Mas</a>
 						</div>
 					</div>
 				</div>
@@ -173,10 +176,11 @@
 						<div class="thumb">
 							<a href="{% url 'copas-chinas' %}"><img src="/static/img/namaste/copas_chinas.jpg" alt=""></a>
 						</div>
-						<div class="service-info text-center">
-							<h3><a href="{% url 'copas-chinas' %}">Copas Chinas</a></h3>
+						<div class="package text-center">
+							<h3 class="package-title" id="package-title">Copas Chinas</h3>
 							<p>Esta técnica milenaria, utilizada en la medicina tradicional china, ofrece una manera efectiva de aliviar la tensión muscular y mejorar la circulación.</p>
-							<a href="{% url 'copas-chinas' %}" class="btn btn-default">Leer Mas</a>
+							<a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reservar</a>
+							<a href="{% url 'copas-chinas' %}" class="btn btn-primary">Leer Mas</a>
 						</div>
 					</div>
 				</div>
@@ -186,10 +190,11 @@
 						<div class="thumb">
 							<a href="{% url 'vacuslim' %}"><img src="/static/img/namaste/vacuslim.jpg" alt=""></a>
 						</div>
-						<div class="service-info text-center">
-							<h3><a href="{% url 'vacuslim' %}">Vacuslim-48</a></h3>
+						<div class="package text-center">
+							<h3 class="package-title" id="package-title">Vacuslim-48</h3>
 							<p>Nuestro tratamiento de Vacuslim combina la succión controlada con masajes terapéuticos para estimular la circulación, reducir la celulitis y mejorar la firmeza de la piel.</p>
-							<a href="{% url 'vacuslim' %}" class="btn btn-default">Leer Mas</a>
+							<a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reservar</a>
+							<a href="{% url 'vacuslim' %}" class="btn btn-primary">Leer Mas</a>
 						</div>
 					</div>
 				</div>
@@ -565,7 +570,7 @@
 									<div class="input-group-addon">
 										<i class="fa fa-calendar"></i>
 									</div>
-									<input type="text" id="rdate" class="form-control date-pic" name="date" placeholder="mm/dd/yyyy" required data-error="Escoga fecha de reservación">
+									<input type="text" id="rdate" class="form-control date-pic" name="date_requested" placeholder="mm/dd/yyyy" required data-error="Escoga fecha de reservación">
 								</div>
 								<div class="help-block with-errors"></div>
 							</div>

@@ -25,6 +25,7 @@ urlpatterns = [
     path('vacumterapia/', views.vacumterapia, name='vacumterapia'),
     path('lebody/', views.lebody, name='lebody'),
     path('relevo/', views.relevo, name='relevo'),
+    path('relevo-clientes/', views.relevo_clientes, name='relevo-clientes'),
     path('auth/login/', CustomLoginView.as_view(), name='login'),
     path('register/', views.register, name='register'),
     path('auth/logout/', views.logout, name='logout'),
@@ -50,4 +51,6 @@ urlpatterns = [
     path('webhook/', views.stripe_webhook),
     path("agenda/", views.agenda, name="agenda"),
     path("gracias/", views.gracias, name="gracias"),
+    path("citas-solicitadas/", views.citas_solicitadas, name="citas-solicitadas"),
+    path("borrar-cita/<int:user_id>/", views.borrar_cita, name="borrar_cita"),
 ]

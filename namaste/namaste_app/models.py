@@ -37,7 +37,7 @@ class RequestAppointment(models.Model):
     zip = models.CharField(max_length=50, blank=True, default='')
     city = models.CharField(max_length=50, blank=True, default='')
     service = models.CharField(max_length=50, choices=ServiceType.choices, default='')
-    date = models.CharField(max_length=50, blank=False, default='')
+    date_requested = models.CharField(max_length=50, blank=False, default='')
 
 
 class HourSelected(models.TextChoices):

@@ -1,0 +1,348 @@
+{% extends "base.html" %}{% block title %}Relevo De Resonsabilidad{% endblock %}
+{% load widget_tweaks %}
+{% block content %}
+
+<style>
+    /* Base styles for larger screens */
+#relevo {
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px;
+box-sizing: border-box;
+}
+
+#relevo .container {
+max-width: 960px;
+width: 100%;
+margin: 0 auto;
+padding: 20px;
+background-color: #fff;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
+}
+
+#relevo .text-block {
+text-align: center;
+margin-bottom: 20px;
+}
+
+#relevo .text-block h2 {
+margin-bottom: 15px;
+color: #333;
+}
+
+#relevo .text-block p {
+margin-bottom: 10px;
+}
+
+.input-group {
+margin-bottom: 10px;
+}
+
+.input-group-btn {
+display: flex;
+align-items: center;
+}
+
+/* Responsive styles for tablets */
+@media (max-width: 769px) {
+#relevo .container {
+    padding: 20px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#relevo .text-block h2 {
+    font-size: 1.5rem; /* Reduce the font size a bit */
+}
+.modal-body {
+    padding: 0 15px;  /* Adds padding to avoid touching the edges */
+}
+
+.form-group {
+    width: 100%; /* Ensures full width usage within the modal body */
+}
+
+.form-group input, .form-group div {
+    width: 100%; /* Makes input fields and radio button groups take full width */
+}
+
+.row {
+    display: block; /* Stacks the columns vertically */
+    margin: 0; /* Removes any default margin for rows */
+}
+
+[class*="col-"] {
+    float: none;
+    width: 100%; /* Forces all column classes to take full width */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Aligns the form contents centrally */
+}
+
+canvas#signature-pad {
+    max-width: 100%; /* Ensures the canvas does not overflow its container */
+    height: auto; /* Maintains aspect ratio */
+}
+
+button {
+    width: 100%; /* Full width buttons for better mobile interaction */
+    margin-top: 10px; /* Adds space between buttons if stacked */
+}
+}
+
+
+/*Responsive styles for mobile phones */
+/* @media (max-width: 480px) {
+#relevo {
+    flex-direction: column;
+    padding: 10px;
+}
+
+#relevo .container {
+    padding: 10px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#relevo .text-block h2 {
+    font-size: 1.25rem; 
+}
+
+#relevo .text-block p {
+    font-size: 0.9rem; 
+}
+} */
+</style>
+<div>
+    <section class="section-spacing" id="relevo">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="text-block wow fadeIn">
+                        <h2>Relevo De Responsabilidad</h2>
+                        <p>Yo hago constar que de manera voluntaria, con conocimiento sin coacción alguna, asumo todos los riesgos y la absoluta responsabilidad de los tratamientos y/o procedimientos que estoy solicitando en Namasté.</p>
+                        <p>Acuerdo relevar totalmente a Namasté y/o sus funcionarios y empleados por cualquier daño o perjuicio que pudiera sufrir durante los tratamientos y/o procedimientos solicitados, además de los indicados y/o recomendados, sean superficiales, a título gratuito u onerosos y los demás procedimientos de cualesquiera indoles anunciados o descritos en el plan de tratamiento contenido en mi ficha técnica de servicios.</p>
+                        <p>Manifiesto que han sido explicados los tratamientos y/o procedimientos a realizarse y la forma como se me practicarán, así como su naturaleza, mecanismo de aplicación de acción, efectos secundarios, contraindicaciones e incapacidades como de los productos suministrados, aplicados y de los productos indicados para uso en casa.  También reconozco, acepto y declaro expresamente que, en todo caso y virtud de la naturaleza del servicio prestado, la obligación de Namasté y/o sus esteticistas que participen de mi atención en desarrollo de los tratamientos y/o procedimientos establecidos en este plan de consulta y orientación solicitados por mi y ofrecido a cualquier título, será siempre de medios y no de resultados.</p>
+                        <p>Declaro que la información suministrada por mí para efectos de mi historial es verdadera y entiendo y acepto la responsabilidad civil y/o penal que por la omisión o manifestación errada sobre mi estado real de salud.</p>
+                        
+                    </div>
+                </div>
+                <form method="post" action="{% url 'relevo-clientes' %}">
+                    {% csrf_token %}
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="form-group">
+                                    <label>Nombre*</label>
+                                    <input type="text" id="rfname" class="form-control" name="first_name" required data-error="Provee su primer nombre">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="form-group">
+                                    <label>Apellido*</label>
+                                    <input type="text" id="rfname" class="form-control" name="last_name" required data-error="Provee su apellido">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                        
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="form-group">
+                                    <label>Email*</label>
+                                    <input type="email" id="remail" class="form-control" name="email" required data-error="Provee su correo electronico">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="form-group">
+                                    <label>Teléfono*</label>
+                                    <input type="tel" id="rphone" class="form-control" name="phone_number" required data-error="Provee su numero de teléfono">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Dirección*</label>
+                            <input type="text" id="raddress" class="form-control" name="address" required data-error="Provee su dirección">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group">
+                            <label>Tiene alguna condición medica?*</label>
+                            <div>
+                                <input type="radio" id="yes" name="has_condition" value=True>
+                                <label for="yes">Si</label>
+                                <input type="radio" id="no" name="has_condition" value=False checked>
+                                <label for="no">No</label>
+                            </div>
+                        </div>
+                        <div class="form-group" id="medicalCondition" style="display: none;">
+                            <label>Condiciónes Medicas*</label><br>
+                            <label><i>E.g. diabetes, hipoglucemia, hipertension</i></label>
+                                <input type="text" id="referenceName" class="form-control" name="condition_names" data-error="Provee su condición medica">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group">
+                            <label>Acepto a que se tome fotos o videos de los tratamientos y/o procedimientos realizados a mi persona:*</label>
+                            <div>
+                                <input type="radio" id="yes" name="accept_photo" value=True>
+                                <label for="yes">Si</label>
+                                <input type="radio" id="no" name="accept_photo" value=False checked>
+                                <label for="no">No</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Permito que el contenido sea publicado en las redes sociales:*</label>
+                            <div>
+                                <input type="radio" id="yes" name="accept_publishing" value=True>
+                                <label for="yes">Si</label>
+                                <input type="radio" id="no" name="accept_publishing" value=False checked>
+                                <label for="no">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <p><b>CERTIFICO</b> que he leido y entendido toda la información, aqui expuesta por lo tanto DOY mi consentimiento.</p>
+                    <canvas id="signature-pad" width="400" height="200" style="border: 1px solid #000000;"></canvas>
+                    <button type="button" id="clear">Clear</button>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+        
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.7/dist/signature_pad.umd.min.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    var canvas = document.getElementById('signature-pad');
+
+    // Function to resize the canvas to the parent width
+    function resizeCanvas() {
+        var ratio = Math.max(window.devicePixelRatio || 1, 1);
+        canvas.width = canvas.offsetWidth * ratio;
+        canvas.height = canvas.offsetHeight * ratio;
+        canvas.getContext("2d").scale(ratio, ratio);
+    }
+
+    window.onresize = resizeCanvas;
+    resizeCanvas();
+
+    var signaturePad = new SignaturePad(canvas, {
+        backgroundColor: 'rgb(255, 255, 255)', // necessary for saving image as JPEG; can be removed if only saving as PNG or SVG
+        penColor: 'rgb(0, 0, 0)'
+    });
+
+    // Check if the canvas is empty before submitting the form
+    document.getElementById('clear').addEventListener('click', function() {
+        signaturePad.clear();
+    });
+
+    var form = document.querySelector('form');
+    form.addEventListener('submit', function(event) {
+        if (signaturePad.isEmpty()) {
+            alert("Please provide a signature.");
+            event.preventDefault();
+        } else {
+            // Create a hidden input element, and append it to the form
+            var input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'signature';  // The name of the input to be sent to the server
+            input.value = signaturePad.toDataURL('image/png');
+            form.appendChild(input);
+        }
+    });
+});
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var yesOption = document.getElementById('yes');
+        var noOption = document.getElementById('no');
+        var medicalCondition = document.getElementById('medicalCondition');
+    
+        yesOption.addEventListener('change', function() {
+            if (this.checked) {
+                medicalCondition.style.display = 'block';
+            }
+        });
+    
+        noOption.addEventListener('change', function() {
+            if (this.checked) {
+                medicalCondition.style.display = 'none';
+            }
+        });
+    });
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$("#remail").blur(function() {
+    var email = $(this).val();
+    $.ajax({
+        url: '/check-email/',
+        method: 'GET',
+        data: {email: email},
+        success: function(response) {
+            if(response.exists){
+                alert("Email already registered!");
+                $("#remail").val('');  // Clear the input
+            }
+        }
+    });
+});
+
+$("#rphone").change(function() {
+    var phone = $(this).val();
+    if (phone.length > 0) {  // Check if input is not empty
+        $.ajax({
+            url: '/check-phone/',
+            method: 'GET',
+            data: {phone_number: phone},
+            success: function(response) {
+                if(response.exists){
+                    alert("Phone number already in use!");
+                    $("#rphone").val('');  // Clear the input
+                }
+            }
+        });
+    }
+});
+</script>
+<script>
+    function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+var csrftoken = getCookie('csrftoken');
+
+$.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+    }
+});
+</script>
+{% endblock %}
+
+
+
