@@ -1,0 +1,255 @@
+{% extends "base.html" %} {% block title %} - Mesoterapia {% endblock %}
+{% load widget_tweaks %}
+{% block content %}
+
+<section class="inner-page-banner" style="background-image:url(/static/img/namaste/mesoterapia_banner.jpg)">
+	<div class="page-banner-caption">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1>Mesoterapia</h1>
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="{% url 'servicios' %}">Servicios</a></li>
+						<li class="breadcrumb-item active">Mesoterapia</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+	<!-- end banner -->
+	
+	<section class="section-spacing">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="service-item wow fadeIn">
+						<div class="thumb">
+							<img src="/static/img/namaste/mesoterapia.jpg" alt="">
+						</div>
+						<div class="package text-center">
+							<h3 class="package-title" id="package-title">Mesoterapia</h3>
+							<p>Consiste en la aplicacion de activos mediante microagujas. Cada activo va dirigido a un objeto diferente dependiendo en la necesidad del cliente.</p>
+							<a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reserva Ahora</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-8">
+					<div class="service-details">
+						<h3>Mesoterapia Regular</h3>
+						<ul>
+							<li><b>1 ML</b>-> $50</li>
+							<li><b>2 ML</b>-> $70</li>
+							<li><b>4 ML</b>-> $90</li>
+							<li><b>5 ML</b>-> $125</li>
+						</ul>
+						<h3>Mesoterapia Premium (mas fuertes)</h3>
+						<ul>
+							<li><b>1 ML</b>-> $70</li>
+							<li><b>2 ML</b>-> $90</li>
+							<li><b>4 ML</b>-> $120</li>
+							<li><b>5 ML</b>-> $145</li>
+						</ul>
+						<p>Las agujas son casi invisibles, es un tratamiento no invasivo, indoloroso, en el cual podras emplear tu vida cotidiana luego de realizarlo.</p>
+						<p>Excepto algunas actividades las cuales deberias evitar: tomar sol, consumir alcohol, entre otros.</p>
+						<p>5ML maximo por sesion</p>
+						<h3>Beneficios</h3>
+						<ul>
+							<li><b>Reducción de grasa localizada:</b> Ayuda a eliminar depósitos de grasa en zonas específicas del cuerpo.</li>
+							<li><b>Mejora la apariencia de la piel</b> Aporta luminosidad y una textura más uniforme, combatiendo el envejecimiento y las imperfecciones.</li>
+							<li><b>Tratamiento de la celulitis:</b> Reduce la apariencia de la piel de naranja y mejora la firmeza.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- end services -->
+
+	<section class="section-spacing inverse-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div>
+						<div class="section-title text-center">
+							<h2><span>Reglas</span></h2>
+							<ul>
+								<li>Toda cita requiere un depósito de $15 antes de ser agendado.</li><br>
+								<li>De ausentarse a la cita, el depósito no es reembolsable. En caso de que desee agendar otra cita, nuevamente se requerirá el depósito de $15 para una nueva cita.</li><br>
+								<li>Se requiere que llegue 5 minutos antes de su cita. De llegar más de 10 minutos tarde a la hora pautada, la cita se cancelará automáticamente.</li><br>
+								<li>Si desea cambiar o cancelar su cita se requiere que sea con dos días de anticipación. De lo contrario perderá el depósito.</li><br>
+								<li>No se aceptan niños como acompañantes.</li><br>
+								<li>Nos reservamos el derecho de admisión.</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- end Reglas -->
+	
+	<section class="section-spacing">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="section-title text-center">
+						<h2><span>Te Podria Gustar</span></h2>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="service-item wow fadeIn">
+						<div class="thumb">
+							<a href="{% url 'drenaje' %}"><img src="/static/img/namaste/drenaje2.jpg" alt=""></a>
+						</div>
+						<div class="service-info text-center">
+							<h3><a href="{% url 'drenaje' %}">Drenaje Linfático</a></h3>
+							<p>Nuestro masaje de drenaje linfático, una técnica suave y terapéutica diseñada para estimular el sistema linfático y promover la eliminación de toxinas del cuerpo.</p>
+							<a href="{% url 'drenaje' %}" class="btn btn-default">Leer Mas</a>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-4">
+					<div class="service-item wow fadeIn">
+						<div class="thumb">
+							<a href="{% url 'vacuslim' %}"><img src="/static/img/namaste/vacuslim_new.jpg" alt=""></a>
+						</div>
+						<div class="service-info text-center">
+							<h3><a href="{% url 'vacuslim' %}">Vacuslim-48</a></h3>
+							<p>Nuestro tratamiento de Vacuslim combina la succión controlada con masajes terapéuticos para estimular la circulación, reducir la celulitis y mejorar la firmeza de la piel.</p>
+							<a href="{% url 'vacuslim' %}" class="btn btn-default">Leer Mas</a>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-4">
+					<div class="service-item wow fadeIn">
+						<div class="thumb">
+							<a href="{% url 'waxing' %}"><img src="/static/img/namaste/waxing.jpg" alt=""></a>
+						</div>
+						<div class="service-info text-center">
+							<h3><a href="{% url 'waxing' %}">Depilación</a></h3>
+							<p>Disfruta de una piel suave y sin vello con nuestros servicios profesionales de depilación con cera.</p>
+							<a href="{% url 'waxing' %}" class="btn btn-default">Leer Mas</a>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<a href="{% url 'contacto' %}" class="btn btn-primary">Contactanos</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- end services -->
+	
+		<!-- Appointment Modal -->
+		<div class="modal fade modal-vcenter" id="appointment" role="dialog">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h2>RESERVA TU CITA</h2>
+					</div>
+					<div class="modal-body">
+						<form action="{% url 'booking' %}" method="POST" data-toggle="validator">
+							{% csrf_token %}
+							<div class="row">
+								<div class="col-xs-12 col-sm-6">
+									<div class="form-group">
+										<label>Nombre*</label>
+										<input type="text" id="rfname" class="form-control" name="first_name" required data-error="Provee su primer nombre">
+										<div class="help-block with-errors"></div>
+									</div>
+								</div>
+									
+								<div class="col-xs-12 col-sm-6">
+									<div class="form-group">
+										<label>Apellido</label>
+										<input type="text" id="rlname" class="form-control" name="last_name" >
+									</div>
+								</div>
+							</div>
+								
+							<div class="row">
+								<div class="col-xs-12 col-sm-6">
+									<div class="form-group">
+										<label>Email*</label>
+										<input type="email" id="remail" class="form-control" name="email_address" required data-error="Provee su correo electronico">
+										<div class="help-block with-errors"></div>
+									</div>
+								</div>
+									
+								<div class="col-xs-12 col-sm-6">
+									<div class="form-group">
+										<label>Teléfono*</label>
+										<input type="tel" id="rphone" class="form-control" name="phone_number" required data-error="Provee su numero de teléfono">
+										<div class="help-block with-errors"></div>
+									</div>
+								</div>
+									
+							</div>
+								
+							<div class="form-group">
+								<label>Dirección</label>
+								<input type="text" id="raddress" class="form-control" name="address">
+							</div>
+								
+							<div class="row">
+								<div class="col-xs-12 col-sm-4">
+									<div class="form-group">
+										<label>Zip Code</label>
+										<input type="text" id="rzipcode" class="form-control" name="zip">
+									</div>
+								</div>
+									
+								<div class="col-xs-12 col-sm-8">
+									<div class="form-group">
+										<label>Ciudad</label>
+										<input type="text" id="rcity" class="form-control" name="city">
+									</div>
+								</div>
+							</div>
+								
+							<div class="form-group">
+								<label for="selected-package">Servicio</label>
+								<input type="text" class="form-control" id="selected-package" placeholder="Package will appear here" name="service" readonly>
+							</div>
+								
+							<div class="row">
+								<div class="col-xs-12 col-sm-12">
+									<div class="form-group">
+										<label>Fecha de Reservación*</label>
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-calendar"></i>
+											</div>
+											<input type="text" id="rdate" class="form-control date-pic" name="date_requested" placeholder="mm/dd/yyyy" required data-error="Escoga fecha de reservación">
+										</div>
+										<div class="help-block with-errors"></div>
+									</div>
+								</div>
+							</div>
+								
+							<div class="submit-block text-right">
+								<a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
+								<input value="Submit" name="submit" class="btn btn-primary" type="submit">
+							</div>
+								
+							<div id="msgSubmitRes" class="h3 text-center hidden"></div>
+								
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script src="/static/js/booking.js"></script>
+	
+    {% endblock %}

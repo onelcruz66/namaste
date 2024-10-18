@@ -27,6 +27,8 @@ class ServiceType(models.TextChoices):
     LIPOLASER = 'Lipoláser', _('Lipoláser')
     VACUMTERAPIA = 'Vacumterapia', _('Vacumterapia')
     LEBODY = 'LeBody', _('LeBody')
+    POSTPARTO = 'Post Parto', _('Post Parto')
+    MESOTERAPIA = 'Mesoterapia', _('Mesoterapia')
 
 class RequestAppointment(models.Model):
     first_name = models.CharField(max_length=50, null=False, blank=False)
@@ -151,6 +153,8 @@ class TreatmentType(models.TextChoices):
     LIPOLASER = 'Lipolaser', _('Lipolaser')
     VACUMTERAPIA = 'Vacumterapia', _('Vacumterapia')
     LEBODY = 'LeBody', _('LeBody')
+    MESOTERAPIA = 'Mesoterapia', _('Mesoterapia')
+    POSTPARTO = 'Post Parto', _('Post Parto')
     OTRO = 'Otro', _('Otro')
 
 class CustomerEntry(models.Model):

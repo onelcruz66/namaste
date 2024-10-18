@@ -1,16 +1,16 @@
-{% extends "base.html" %} {% block title %} - Maderoterapia Facial{% endblock %}
+{% extends "base.html" %} {% block title %} - Post Parto {% endblock %}
 {% load widget_tweaks %}
 {% block content %}
 
-	<section class="inner-page-banner" style="background-image:url(/static/img/namaste/wood_therapy_facial.jpg)">
+	<section class="inner-page-banner" style="background-image:url(/static/img/namaste/post-parto-banner.jpg)">
 		<div class="page-banner-caption">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-12" id="facial-wood-therapy">
-						<h1>Maderoterapia Facial</h1>
+					<div class="col-md-12">
+						<h1>Post Parto</h1>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="{% url 'servicios' %}">Servicios</a></li>
-							<li class="breadcrumb-item active" id="maderoterapia-facial">Maderoterapia Facial</li>
+							<li class="breadcrumb-item active">Post Parto</li>
 						</ol>
 					</div>
 				</div>
@@ -25,29 +25,25 @@
 				<div class="col-md-4">
 					<div class="service-item wow fadeIn">
 						<div class="thumb">
-							<img src="/static/img/namaste/maderoterapia_facial.jpg" alt="">
-                            <div class="play-button">
-								<a href="#" data-toggle="modal" data-target="#video-modal"><i class="fa fa-play"></i></a>
-							</div>
+							<img src="/static/img/namaste/post-parto.jpg" alt="">
 						</div>
 						<div class="package text-center">
-							<h3 class="package-title" id="package-title">Maderoterapia Facial</h3>
-							<p>Esta técnica ancestral, combinada con modernas prácticas de bienestar, utiliza instrumentos de madera especialmente diseñados para estimular y tonificar la piel del rostro, promoviendo un aspecto más juvenil y radiante.</p>
+							<h3 class="package-title" id="package-title">Post Parto</h3>
+							<p>Este drenaje linfático asiste en la reducción de la retención de líquidos y contribuye a la recuperación del tono de la zona abdominal y pélvica.</p>
 							<a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reserva Ahora</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-8">
 					<div class="service-details">
-						<h3>Duración: 1 hora<br>$50</h3>
-						<p>Es un masaje indoloroso, que se lleva a cabo con artefactos de madera con el fin de lograr los siguientes beneficios:</p>
+						<h3>Por hora: <br>$60</h3>
+						<p>Esta técnica favorece la reducción del proceso inflamatorio, mejorando el bienestar general de la mujer.</p>
+                        <p>Se puede realizar a partir de las dos semanas de post parto.</p>
+						<h3>Beneficios</h3>
 						<ul>
-							<li>Tonificar</li>
-							<li>Reafirmar</li>
-							<li>Moldear</li>
-							<li>Activar la circulación sanguínea y linfática.</li>
-							<li>Activar la producción de colágeno y elastina.</li>
-							<li>Eliminar líneas de expresión.</li>
+							<li><b>Reducción de la retención de líquidos:</b> Ayuda a eliminar el exceso de líquidos acumulados durante el embarazo.</li>
+							<li><b>Mejora de la circulación:</b> Favorece una circulación saludable, ayudando a reducir la hinchazón en áreas como piernas, abdomen y pies.</li>
+							<li><b>Aceleración de la recuperación:</b> Estimula la recuperación natural del cuerpo tras el parto, aliviando tensiones y malestar.</li>
 						</ul>
 					</div>
 				</div>
@@ -77,7 +73,7 @@
 			</div>
 		</div>
 	</section>
-	<!-- end Reglas -->
+	<!-- end Reglas --> 
 	
 	<section class="section-spacing">
 		<div class="container">
@@ -138,29 +134,8 @@
 		</div>
 	</section>
 	<!-- end services -->
-
-    <!-- Start Video Modal -->
-	<div class="modal fade modal-vcenter" id="video-modal" role="dialog">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times-circle-o"></i></button>
-                </div>
-                <div class="modal-body">
-                    <video width="760" height="500" controls>
-                        <source src="/static/img/namaste/maderoterapia_facial.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>                
-                <!-- <div class="modal-body">
-					<iframe width="760" height="500" src="https://www.youtube.com/embed/EEnkifmw25U?rel=0&amp;showinfo=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div> -->
-            </div>
-        </div>
-    </div> 
-	<!-- End Video Modal --> 
 	
-<!-- Appointment Modal -->
+		<!-- Appointment Modal -->
 <div class="modal fade modal-vcenter" id="appointment" role="dialog">
 	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">

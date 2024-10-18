@@ -386,6 +386,42 @@ def vacumterapia(request):
 
     return render(request, 'vacumterapia.html', context)
 
+def mesoterapia(request):
+
+    context = {}
+
+    # Handle form submissions
+    if request.method == "POST":
+        form = RequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(request.path) 
+    else:
+        # Render the form for GET requests
+        form = RequestForm()
+
+    context['form'] = form
+
+    return render(request, 'mesoterapia.html', context)
+
+def post_parto(request):
+
+    context = {}
+
+    # Handle form submissions
+    if request.method == "POST":
+        form = RequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(request.path) 
+    else:
+        # Render the form for GET requests
+        form = RequestForm()
+
+    context['form'] = form
+
+    return render(request, 'post-parto.html', context)
+
 def lebody(request):
 
     context = {}

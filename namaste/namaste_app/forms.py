@@ -29,7 +29,9 @@ class RequestForm(forms.ModelForm):
                                              ('Maderoterapia Facial', 'Maderoterapia Facial'), \
                                              ('Lipoláser', 'Lipoláser'), \
                                              ('Vacumterapia', 'Vacumterapia'), \
-                                             ('LeBody', 'LeBody')
+                                             ('LeBody', 'LeBody'), \
+                                             ('Mesoterapia', 'Mesoterapia'), \
+                                             ('Post Parto', 'Post Parto')
                                              ])
 
 class TimeForm(forms.ModelForm):
@@ -102,5 +104,7 @@ class ClientForm(forms.ModelForm):
                                                ('Lipolaser', 'Lipolaser'), \
                                                ('Vacumterapia', 'Vacumterapia'), \
                                                ('LeBody', 'LeBody'), \
+                                               ('Mesoterapia', 'Mesoterapia'), \
+                                               ('Post Parto', 'Post Parto'), \
                                                ('Otro', 'Otro'), \
                                                ])
