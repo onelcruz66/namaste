@@ -31,6 +31,7 @@ class RequestForm(forms.ModelForm):
                                              ('Vacumterapia', 'Vacumterapia'), \
                                              ('LeBody', 'LeBody'), \
                                              ('Mesoterapia', 'Mesoterapia'), \
+                                             ('Laser', 'Laser'), \
                                              ('Post Parto', 'Post Parto')
                                              ])
 
@@ -105,6 +106,7 @@ class ClientForm(forms.ModelForm):
                                                ('Vacumterapia', 'Vacumterapia'), \
                                                ('LeBody', 'LeBody'), \
                                                ('Mesoterapia', 'Mesoterapia'), \
+                                               ('Laser', 'Laser'), \
                                                ('Post Parto', 'Post Parto'), \
                                                ('Otro', 'Otro'), \
                                                ])

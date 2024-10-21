@@ -1,16 +1,16 @@
-{% extends "base.html" %} {% block title %} - Maquina De Gluteos {% endblock %}
+{% extends "base.html" %} {% block title %} - Laser {% endblock %}
 {% load widget_tweaks %}
 {% block content %}
 
-	<section class="inner-page-banner" style="background-image:url(/static/img/namaste/vacumterapia_banner.jpg)">
+	<section class="inner-page-banner" style="background-image:url(/static/img/namaste/laser_banner.jpg)">
 		<div class="page-banner-caption">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<h1>Maquina de Gluteos</h1>
+						<h1>Laser De Diodo</h1>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="{% url 'servicios' %}">Servicios</a></li>
-							<li class="breadcrumb-item active">Maquina de Gluteos</li>
+							<li class="breadcrumb-item active">Laser De Diodo</li>
 						</ol>
 					</div>
 				</div>
@@ -25,25 +25,24 @@
 				<div class="col-md-4">
 					<div class="service-item wow fadeIn">
 						<div class="thumb">
-							<img src="/static/img/namaste/maquina_de_gluteos.jpg" alt="">
+							<img src="/static/img/namaste/laser.jpg" alt="">
 						</div>
 						<div class="package text-center">
-							<h3 class="package-title" id="package-title">Maquina de Gluteos</h3>
-							<p>Ayuda a mejorar la apariencia natural del glúteo, eliminando la apariencia de la celulitis primer nivel.</p>
+							<h3 class="package-title" id="package-title">Laser De Diodo</h3>
+							<p>El láser de diodo es un tipo de láser que emite luz en una longitud de onda específica (800-810 nm), ideal para depilación y tratamientos dermatológicos.</p>
 							<a href="#" data-toggle="modal" data-target="#appointment" class="btn btn-default">Reserva Ahora</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-8">
 					<div class="service-details">
-						<h3>Duración: 30 min<br>$35</h3>
-						<p>Se emplea mediante aparatos succionadores que movilizan la grasa hacia el sistema linfático.</p>
+						<!-- <h3>Duración: 1 Hora<br>$65</h3> -->
+						<p>Ofrece precisión, buena penetración en la piel y seguridad, especialmente en pieles claras. Además, suele incluir enfriamiento para proteger la piel durante el tratamiento.</p>
 						<h3>Beneficios</h3>
 						<ul>
-							<li><b>Moldeado Corporal:</b> Mejora la forma y el tono de tu cuerpo, reduciendo la celulitis y favoreciendo la pérdida de centímetros en áreas problemáticas.</li>
-							<li><b>Levantamiento y Reafirmación:</b> Ideal para reafirmar y levantar glúteos, senos y otras áreas flácidas, proporcionando un aspecto más juvenil y tonificado.</li>
-							<li><b>Mejoramiento de la Circulación Sanguínea:</b> Estimula el flujo sanguíneo, lo que mejora la salud y apariencia de la piel, y contribuye a una mejor eliminación de toxinas.</li>
-							<li><b>Relajación Muscular:</b> Alivia la tensión y el dolor muscular, ofreciendo una experiencia relajante y terapéutica.</li>
+							<li><b>Resultados duraderos:</b> Reduce el vello de manera permanente tras varias sesiones.</li>
+							<li><b>Apto para todos los tipos de piel:</b> El láser de diodo es eficaz tanto en pieles claras como oscuras.</li>
+							<li><b>Tratamiento rápido y seguro:</b> Sesiones cortas con mínimas molestias.</li>
 						</ul>
 					</div>
 				</div>
@@ -135,15 +134,15 @@
 	</section>
 	<!-- end services -->
 	
-		<!-- Appointment Modal -->
+	<!-- Appointment Modal -->
 <div class="modal fade modal-vcenter" id="appointment" role="dialog">
-	<div class="modal-dialog modal-lg" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h2>RESERVA TU CITA</h2>
-			</div>
-			<div class="modal-body">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h2>RESERVA TU CITA</h2>
+            </div>
+            <div class="modal-body">
 				<form action="{% url 'booking' %}" method="POST" data-toggle="validator">
 					{% csrf_token %}
 					<div class="row">
@@ -205,7 +204,7 @@
 						
 					<div class="form-group">
 						<label for="selected-package">Servicio</label>
-						<input type="text" class="form-control" id="selected-package" placeholder="Package will appear here" name="service" readonly>
+                        <input type="text" class="form-control" id="selected-package" placeholder="Package will appear here" name="service" readonly>
 					</div>
 						
 					<div class="row">
@@ -231,9 +230,9 @@
 					<div id="msgSubmitRes" class="h3 text-center hidden"></div>
 						
 				</form>
-			</div>
-		</div>
-	</div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script src="/static/js/booking.js"></script>

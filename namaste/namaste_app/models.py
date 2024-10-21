@@ -29,6 +29,7 @@ class ServiceType(models.TextChoices):
     LEBODY = 'LeBody', _('LeBody')
     POSTPARTO = 'Post Parto', _('Post Parto')
     MESOTERAPIA = 'Mesoterapia', _('Mesoterapia')
+    LASER = 'Laser', _('Laser')
 
 class RequestAppointment(models.Model):
     first_name = models.CharField(max_length=50, null=False, blank=False)
@@ -155,6 +156,7 @@ class TreatmentType(models.TextChoices):
     LEBODY = 'LeBody', _('LeBody')
     MESOTERAPIA = 'Mesoterapia', _('Mesoterapia')
     POSTPARTO = 'Post Parto', _('Post Parto')
+    LASER = 'Laser', _('Laser')
     OTRO = 'Otro', _('Otro')
 
 class CustomerEntry(models.Model):

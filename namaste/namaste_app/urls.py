@@ -22,6 +22,7 @@ urlpatterns = [
     path('pistola-masaje/', views.pistola_masaje, name='pistola-masaje'),
     path('maderoterapia-facial/', views.maderoterapia_facial, name='maderoterapia-facial'),
     path('lipolaser/', views.lipolaser, name='lipolaser'),
+    path('laser/', views.laser, name='laser'),
     path('vacumterapia/', views.vacumterapia, name='vacumterapia'),
     path('mesoterapia/', views.mesoterapia, name='mesoterapia'),
     path('post-parto/', views.post_parto, name='post_parto'),
